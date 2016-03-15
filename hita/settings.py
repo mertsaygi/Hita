@@ -124,8 +124,6 @@ USE_TZ = True
 
 STATIC_URL = os.path.join(BASE_DIR, 'themes/')
 
-print STATIC_URL
-
 STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'themes/'), )
 
 TEMPLATES = [

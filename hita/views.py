@@ -8,3 +8,6 @@ def main(request):
 
 def login(request):
     return render_to_response('login.html',locals())
+
+def register(request):
+    return render_to_response('register.html',locals())
