@@ -17,7 +17,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
+from views import *
+import views
 
 urlpatterns = [
     url(r'^management/', admin.site.urls),
+    url(r'^$', views.main, name="home"),
 ]
