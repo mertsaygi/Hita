@@ -23,4 +23,5 @@ import views
 urlpatterns = [
     url(r'^management/', admin.site.urls),
     url(r'^$', views.main, name="home"),
+    url(r'^login/', views.login, name='login'),
 ]

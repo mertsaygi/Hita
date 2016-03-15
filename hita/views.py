@@ -5,3 +5,6 @@ from django.http import *
 
 def main(request):
     return render_to_response('index.html',locals())
+
+def login(request):
+    return render_to_response('login.html',locals())
