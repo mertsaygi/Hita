@@ -1,4 +1,4 @@
-"""hita URL Configuration
+"""Hita API URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -14,18 +14,14 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
-from django.conf.urls import include
 from django.conf import settings
 from views import *
 import views
 
 urlpatterns = [
-    url(r'^management/', admin.site.urls),
     url(r'^$', views.main, name="home"),
-    url(r'^login/', views.login, name='login'),
-    url(r'^logout/', views.logout, name='logout'),
-    url(r'^register/', views.register, name='register'),
-    url(r'^payment/', views.payment, name='payment'),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
+    url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
 ]
