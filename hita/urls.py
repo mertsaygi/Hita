@@ -21,8 +21,10 @@ from django.conf import settings
 from views import *
 import views
 
+admin.autodiscover()
+
 urlpatterns = [
-    url(r'^management/', admin.site.urls),
+    url(r'^management/', include(admin.site.urls)),
     url(r'^$', views.main, name="home"),
     url(r'^login/', views.login, name='login'),
     url(r'^logout/', views.logout, name='logout'),
@@ -30,4 +32,6 @@ urlpatterns = [
     url(r'^payment/', views.payment, name='payment'),
     url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
     url(r'^api/', include('api.urls')),
+    url(r'^space/', include('space.urls')),
+    url(r'^tenant/', include('tenant.urls')),
 ]

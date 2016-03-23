@@ -1,0 +1,35 @@
+{% load staticfiles %}
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">&copy; 2016 Kadir Has University. Powered By Hitachi</p>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="create" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Upload File(s)</h4>
+            </div>
+            <div class="modal-body">
+                <img src="http://i.stack.imgur.com/tOMaC.png" width="100%"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
