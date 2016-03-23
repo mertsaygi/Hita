@@ -8,4 +8,4 @@ from rest_framework.decorators import detail_route, list_route
 from rest_framework import viewsets
 
 def main(request):
-    return HttpResponseRedirect('/docs/')
+    return HttpResponseRedirect('docs/')

@@ -28,4 +28,6 @@ urlpatterns = [
     url(r'^logout/', views.logout, name='logout'),
     url(r'^register/', views.register, name='register'),
     url(r'^payment/', views.payment, name='payment'),
+    url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+    url(r'^api/', include('api.urls')),
 ]
