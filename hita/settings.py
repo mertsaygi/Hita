@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'management',
     'api',
-    'space',
+    'namespaces',
     'tenant',
     'rest_framework_swagger',
     'rest_framework',
@@ -145,3 +145,9 @@ TEMPLATES = [
         },
     },
 ]
+
+# HCP Configurations
+
+MAIN_IP = "192.168.1.51"
+
+# End Of HCP Configurations

@@ -9,3 +9,6 @@ from rest_framework import viewsets
 
 def main(request):
     return HttpResponseRedirect('docs/')
+
+def get_tenants(request):
+    return HttpResponseRedirect('docs/')

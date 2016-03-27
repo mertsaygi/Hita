@@ -9,6 +9,8 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 
+AREA_CODE = 0 # 0 space , 1 namespace , 2 tenant
+
 def get_or_create_csrf_token(request):
     token = request.META.get('CSRF_COOKIE', None)
     if token is None:
@@ -53,3 +55,29 @@ def register(request):
 @login_required(login_url='/login/')
 def payment(request):
     return render_to_response('payment.html',locals())
+
+@login_required(login_url='/login/')
+def spaces(request):
+    area_code = AREA_CODE
+    return render_to_response('spaces.html',locals())
+
+def account(request):
+    return HttpResponse("account")
+
+def billing(request):
+    return HttpResponse("billing")
+
+def user_settings(request):
+    return HttpResponse("user_settings")
+
+def support(request):
+    return HttpResponse("support")
+
+def docs(request):
+    return HttpResponse("docs")
+
+def training(request):
+    return HttpResponse("training")
+
+def resources(request):
+    return HttpResponse("resources")
