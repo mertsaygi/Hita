@@ -146,6 +146,17 @@ TEMPLATES = [
     },
 ]
 
+ENVIRONMENTS = ["PRODUCTION","TEST","DEVELOPMENT"]
+ENVIRONMENT = ENVIRONMENTS[2]
+
+# E-Mail Configurations
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mertsaygi@gmail.com'
+EMAIL_HOST_PASSWORD = 'aSfR3q13'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 # HCP Configurations
 
 MAIN_IP = "192.168.1.51"
