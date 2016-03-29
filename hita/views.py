@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.middleware import csrf
 from django.http import *
 from forms import *
+from management.models import *
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
@@ -23,7 +24,7 @@ def main(request):
     return render_to_response('index.html',locals())
 
 def login(request):
-    user = authenticate(username='mertsaygi', password='aSfR3q13')
+    user = authenticate(username='caferbezgetiren', password='caferbezgetiren')
     if user is not None:
         # the password verified for the user
         if user.is_active:
@@ -59,15 +60,19 @@ def payment(request):
 @login_required(login_url='/login/')
 def spaces(request):
     area_code = AREA_CODE
+    user_spaces = UserSpaces.objects.filter(user=request.user)
     return render_to_response('spaces.html',locals())
 
 def account(request):
+    area_code = AREA_CODE
     return HttpResponse("account")
 
 def billing(request):
+    area_code = AREA_CODE
     return HttpResponse("billing")
 
 def user_settings(request):
+    area_code = AREA_CODE
     return HttpResponse("user_settings")
 
 def support(request):
