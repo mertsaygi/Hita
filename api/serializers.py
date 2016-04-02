@@ -13,7 +13,7 @@ class TenantCreateSerializer(serializers.Serializer):
     searchConfigurationEnabled = serializers.BooleanField(default=False)
     replicationConfigurationEnabled = serializers.BooleanField(default=False)
     servicePlanSelectionEnabled = serializers.BooleanField(default=False)
-    servicePlan = serializers.CharField(max_length=255)
+    servicePlan = serializers.CharField(max_length=255,required=False)
 
 class NamespaceCreateSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=255)
