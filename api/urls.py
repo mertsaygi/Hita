@@ -10,5 +10,5 @@ urlpatterns = patterns('hita.api.views',
     url(r'^get-tenants/', views.get_tenants, name='get_tenants'),
     url(r'^create-tenant/', views.create_tenant, name='create_tenant'),
     url(r'^get-namespaces/', views.get_namespaces, name='get_namespaces'),
-    url(r'^create-create_namespace/', views.create_namespace, name='create_namespace'),
+    url(r'^create-namespace/', views.create_namespace, name='create_namespace'),
 )
