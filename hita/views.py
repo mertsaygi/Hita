@@ -85,12 +85,6 @@ def spaces(request):
     area_code = AREA_CODE
     csrf_token = get_or_create_csrf_token(request)
     user_spaces = UserSpaces.objects.filter(user=request.user)
-    if request.method == 'POST':
-        form_name = request.POST.get('form_name')
-        if form_name == "tenant":
-            print "this is a tenant"
-        else:
-            print "this is a namespace"
     return render_to_response('spaces.html',locals())
 
 @login_required(login_url='/login/')
