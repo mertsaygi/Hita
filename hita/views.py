@@ -88,28 +88,31 @@ def spaces(request):
     return render_to_response('spaces.html',locals())
 
 @login_required(login_url='/login/')
+def create(request):
+    area_code = AREA_CODE
+    csrf_token = get_or_create_csrf_token(request)
+    return render_to_response('create.html',locals())
+
+@login_required(login_url='/login/')
+def create_namespace(request):
+    area_code = AREA_CODE
+    csrf_token = get_or_create_csrf_token(request)
+    return render_to_response('create_namespace.html',locals())
+
+@login_required(login_url='/login/')
 def account(request):
     area_code = AREA_CODE
-    return HttpResponse("account")
+    return render_to_response('account.html',locals())
 
 @login_required(login_url='/login/')
 def billing(request):
     area_code = AREA_CODE
-    return HttpResponse("billing")
+    return render_to_response('billing.html',locals())
 
 @login_required(login_url='/login/')
 def user_settings(request):
     area_code = AREA_CODE
-    return HttpResponse("user_settings")
-
-def support(request):
-    return HttpResponse("support")
-
-def docs(request):
-    return HttpResponse("docs")
-
-def training(request):
-    return HttpResponse("training")
+    return render_to_response('settings.html',locals())
 
 def resources(request):
     return HttpResponse("resources")

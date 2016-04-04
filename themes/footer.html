@@ -6,188 +6,6 @@
     </div>
 </footer>
 
-<!-- Modal -->
-<div class="modal fade" id="create-namespace-or-tenant" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Create Namespace Or Tenant</h4>
-            </div>
-            <div class="modal-body">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#tenant">Create Tenant</a></li>
-                    <li><a data-toggle="tab" href="#namespace">Create Namespace</a></li>
-                </ul>
-                <div class="tab-content" style="width:100%;">
-                    <div id="tenant" class="tab-pane fade in active">
-                        <h3>Create Tenant</h3>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-
-                        <form class="form-horizontal" role="form"
-                              style="width:100%;">
-                            {% csrf_token %}
-                            <div class="input-group" style="width:100%;">
-                                <input type="text" style="width:100%;" name="tspace_name" class="form-control span8"
-                                       placeholder="Tenant Name"/>
-                            </div>
-                            <br/>
-
-                            <div class="input-group" style="width:100%;">
-                                <input type="text" style="width:100%;" name="tspace_uname" class="form-control span8"
-                                       placeholder="Username"/>
-                            </div>
-                            <br/>
-
-                            <div class="input-group" style="width:100%;">
-                                <input type="text" style="width:100%;" name="tspace_pass" class="form-control span8"
-                                       placeholder="Password"/>
-                            </div>
-                            <br/>
-
-                            <div class="input-group" style="width:100%;">
-                                <input type="text" style="width:100%;" class="form-control span8"
-                                       placeholder="Password Again"/>
-                            </div>
-                            <br/>
-
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="tspace_hardQuota"
-                                               placeholder="HardQuota"/>
-
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GB
-                                                <span class="caret"></span></button>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="#">GB</a></li>
-                                                <li><a href="#">TB</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <input type="text" class="form-control" name="tspace_softQuota"
-                                           placeholder="SoftQuota"/>
-                                </div>
-                                <div class="col-lg-4">
-                                    <input type="text" class="form-control" name="tspace_namespaceQuota"
-                                           placeholder="NamespaceQuota"/>
-                                </div>
-                            </div>
-                            <br/>
-                            <label>Authentication Types</label>
-                            <br/>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="authenticationType1" name="authenticationType1" value="1"> Local
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="authenticationType2" name="authenticationType2" value="1"> Active Directory
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="authenticationType3" name="authenticationType3" value="1"> RADIUS
-                            </label>
-                            <br/>
-                            <label>Settings</label>
-                            <br/>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="complianceConfigurationEnabled" name="complianceConfigurationEnabled" value=1"> Compliance
-                                Configuration Enabled
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="versioningConfigurationEnabled" name="versioningConfigurationEnabled" value="1"> Versioning
-                                Configuration Enabled
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="searchConfigurationEnabled" name="searchConfigurationEnabled" value="1"> Search Configuration
-                                Enabled
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="replicationConfigurationEnabled" name="replicationConfigurationEnabled" value="1"> Replication
-                                Configuration Enabled
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="servicePlanSelectionEnabled" name="servicePlanSelectionEnabled" value="1"> Service Plan
-                                Selection Enabled
-                            </label>
-                            <br/>
-                            <br/>
-                            <input type="hidden" name="form_name" value="tenant">
-                            <button type="button" class="btn btn-primary" style="width:100%;">Create a Tenant</button>
-                        </form>
-                    </div>
-                    <div id="namespace" class="tab-pane fade">
-                        <h3>Create NameSpace</h3>
-
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.</p>
-
-                        <form method="post" name="namespace" action="/spaces/" class="form-horizontal" role="form"
-                              style="width:100%;">
-                            {% csrf_token %}
-                            <div class="input-group" style="width:100%;">
-                                <input type="text" style="width:100%;" class="form-control span8"
-                                       placeholder="Namespace Name"/>
-                            </div>
-                            <br/>
-
-                            <div class="input-group" style="width:100%;">
-                                <input type="text" style="width:100%;" class="form-control span8"
-                                       placeholder="Username"/>
-                            </div>
-                            <br/>
-
-                            <div class="input-group" style="width:100%;">
-                                <input type="text" style="width:100%;" class="form-control span8"
-                                       placeholder="Password"/>
-                            </div>
-                            <br/>
-
-                            <div class="input-group" style="width:100%;">
-                                <input type="text" style="width:100%;" class="form-control span8"
-                                       placeholder="Password Again"/>
-                            </div>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <input type="hidden" name="form_name" value="namespace">
-                            <button type="submit" class="btn btn-primary" style="width:100%;">Create a Namespace</button>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- Modal Namespace Creation -->
-<div class="modal fade" id="create-namespace" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Create Namespace</h4>
-            </div>
-            <div class="modal-body">
-                <img src="http://i.stack.imgur.com/tOMaC.png" width="100%"/>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 <!-- Modal File Upload -->
 <div class="modal fade" id="upload-file" role="dialog">
@@ -200,19 +18,37 @@
                 <h4 class="modal-title">Upload File(s)</h4>
             </div>
             <div class="modal-body">
-                <img src="http://i.stack.imgur.com/tOMaC.png" width="100%"/>
+                <div id="dropzone">
+                    <form action="http://www.torrentplease.com/dropzone.php" class="dropzone dz-clickable"
+                          id="demo-upload">
+                        <div class="dz-message">Drop files here or click to upload.
+                            <br>
+                            <span class="note">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+
         </div>
-
     </div>
-</div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-</body>
-</html>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+  $.ajaxSetup({beforeSend: function(xhr, settings){
+    xhr.setRequestHeader('X-CSRFToken',
+                         '{{ csrf_token }}');
+  }});
+
+
+    </script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/noty/packaged/jquery.noty.packaged.min.js' %}"></script>
+    <script src="{% static 'js/dropzone.js' %}"></script>
+    <script src="{% static 'js/hcphandler.js' %}"></script>
+    </body>
+    </html>
