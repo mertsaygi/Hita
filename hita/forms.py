@@ -22,6 +22,7 @@ class RegisterForm(forms.Form):
                 new_user=User.objects.create_user(self.cleaned_data['username'],
                                   self.cleaned_data['email_address'],
                                   self.cleaned_data['password'])
+                new_user.is_active = False
                 new_user.save()
 
     def __init__(self, *args, **kwargs):

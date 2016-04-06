@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.middleware import csrf
 from django.http import *
 from forms import *
+import json
 from management.models import *
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -11,6 +12,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
+from hita.decorator import active_and_login_required
 
 AREA_CODE = 0 # 0 space , 1 namespace , 2 tenant
 
@@ -31,7 +33,7 @@ def login(request):
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(username='caferbezgetiren', password='caferbezgetiren')
+        user = authenticate(username=username, password=password)
         if user is not None:
             # the password verified for the user
             if user.is_active:
@@ -39,8 +41,8 @@ def login(request):
                 auth_login(request, user)
                 return HttpResponseRedirect('/spaces/')
             else:
-                print("The password is valid, but the account has been disabled!")
-                error_code = 900 # Not Paid User
+                auth_login(request, user)
+                return HttpResponseRedirect('/spaces/')
         else:
             # the authentication system was unable to verify the username and password
             print("The username and password were incorrect.")
@@ -78,6 +80,10 @@ def forgot(request):
 
 @login_required(login_url='/login/')
 def payment(request):
+    area_code = AREA_CODE
+    error_code = request.GET.get('c')
+    data = open(settings.STATIC_URL+ "/staticdata/countries.json").read()
+    data = json.loads(data)
     return render_to_response('payment.html',locals())
 
 @login_required(login_url='/login/')
@@ -87,13 +93,13 @@ def spaces(request):
     user_spaces = UserSpaces.objects.filter(user=request.user)
     return render_to_response('spaces.html',locals())
 
-@login_required(login_url='/login/')
+@active_and_login_required
 def create(request):
     area_code = AREA_CODE
     csrf_token = get_or_create_csrf_token(request)
     return render_to_response('create.html',locals())
 
-@login_required(login_url='/login/')
+@active_and_login_required
 def create_namespace(request):
     area_code = AREA_CODE
     csrf_token = get_or_create_csrf_token(request)

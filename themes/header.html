@@ -68,7 +68,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Mert Saygı <span class="caret"></span></a>
+                       aria-expanded="false">{% if request.user.first_name|length > 0 and request.user.last_name|length > 0 %} {{ request.user.first_name }} {{ request.user.last_name }} {% else %} {{ request.user.username }} {% endif %} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/account/">My Account</a></li>
                         <li><a href="/billing/">Billing and Cost Management</a></li>

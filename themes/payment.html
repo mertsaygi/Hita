@@ -4,26 +4,160 @@
 
     {% if error_code == "900" %}
 
-    <br />
+    <br/>
 
     <div class="alert alert-warning">
-        <strong>Warning!</strong> Your account is not activated. If you want to create tenant or namespace you have to activate your account via adding a payment method.
+        <strong>Warning!</strong> Your account is not activated. If you want to create tenant or namespace you have to
+        activate your account via adding a payment method. We will got 1$ in your account for test purpose.
     </div>
 
     {% endif %}
 
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
+    <div class="page-body">
+        <h3>Payment Methods</h3>
 
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
-    </div>
+        <p>Please enter your preferred payment method below. You can use a credit card or prepay through PayPal.</p>
 
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#credit">Credit Card</a></li>
+            <li><a data-toggle="tab" href="#paypal">Paypal</a></li>
+        </ul>
+        <div class="tab-content" style="width:100%;">
+            <div id="credit" class="tab-pane fade in active">
+                <h4>Add Credit Card</h4>
 
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
+                <div class="page-header">
+                    <h5>YOUR DETAILS</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="firstname"
+                                   class="form-control span8"
+                                   placeholder="First Name"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="lastname"
+                                   class="form-control span8"
+                                   placeholder="Last Name"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="phone"
+                                   class="form-control"
+                                   placeholder="Phone Number"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="address"
+                                   class="form-control span8"
+                                   placeholder="Street Address"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="city"
+                                   class="form-control span8"
+                                   placeholder="City"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="state"
+                                   class="form-control span8"
+                                   placeholder="State"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="postal"
+                                   class="form-control span8"
+                                   placeholder="Postal Code"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control">
+                            {% for i in data %}
+                            <option value="{{ i.name }}">{{ i.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="page-header">
+                    <h5>CREDIT CARD DETAILS</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="postal"
+                                   class="form-control span8"
+                                   placeholder="Credit Card Number"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="postal"
+                                   class="form-control span8"
+                                   placeholder="CVV"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="postal"
+                                   class="form-control span8"
+                                   placeholder="Expires MM/YYYY"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group" style="width:100%;">
+                            <input type="text" style="width:100%;" name="postal"
+                                   class="form-control span8"
+                                   placeholder="Please enter a name for this credit card"/>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <input type="hidden" name="form_name" value="tenant">
+                <button type="submit" class="btn btn-primary" style="width:100%;">Save Credit Card
+                </button>
+            </div>
+            <div id="paypal" class="tab-pane fade">
+                <h4>PayPal Payment</h4>
+
+                <p>This is a one-time payment that will not recur. Payment may take up to 5 minutes to process.</p>
+
+                <select class="form-control">
+                    {% if error_code == "900" %}
+                    <option value="one">$1.00 USD</option>
+                    {% else %}
+                    <option value="one">$5.00 USD</option>
+                    <option value="two">$10.00 USD</option>
+                    <option value="three">$25.00 USD</option>
+                    <option value="four">$50.00 USD</option>
+                    <option value="five">$100.00 USD</option>
+                    {% endif %}
+                </select>
+
+                <br/>
+                <input type="hidden" name="form_name" value="tenant">
+                <button type="submit" class="btn btn-primary" style="width:100%;">Submit
+                </button>
+            </div>
+        </div>
+
     </div>
 
 </div>
