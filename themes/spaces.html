@@ -1,6 +1,7 @@
 {% include "header.html" %}
 <!-- Begin page content -->
 <div class="container">
+    {% if user_spaces.count > 0 %}
     <div class="table-responsive" style="overflow-x: visible;">
         <table class="table table-hover">
             <thead>
@@ -31,10 +32,16 @@
                             Actions <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Open {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
-                            <li><a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Modify {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
+                            <li>
+                                <a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Open
+                                    {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
+                            <li>
+                                <a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Modify
+                                    {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Delete {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
+                            <li>
+                                <a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Delete
+                                    {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                         </ul>
                     </div>
                 </td>
@@ -43,6 +50,15 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    <div class="empty-container center-block text-center">
+        <i class="glyphicon glyphicon glyphicon-cloud-upload gi-5x wrapper"></i>
+        <br/>
+        <br/>
+        <h4>No tenant or namespace you have</h4>
+        <p>If you want to upload any file, you have to <a href="/create/">create namespace or tenant</a> buttons on top left...</p>
+    </div>
+    {% endif %}
 </div>
 
 {% include "footer.html" %}
