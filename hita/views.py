@@ -37,7 +37,6 @@ def login(request):
         if user is not None:
             # the password verified for the user
             if user.is_active:
-                # TODO: Hesap aktiflik durumuna göre ya spacese git ya da $1'lik ödeme al
                 auth_login(request, user)
                 return HttpResponseRedirect('/spaces/')
             else:

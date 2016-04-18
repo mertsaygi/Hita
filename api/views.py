@@ -45,6 +45,9 @@ def create_tenant(request):
             if response.status_code != 200:
                 return Response(response.headers, status=response.status_code)
             else:
+                tenant = UserSpaces(user=request.user, space_url=request.data["name"] + ".mertsaygi.khas.edu.tr",
+                                    space_type=2)
+                tenant.save()
                 return Response(response.headers, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     else:
@@ -82,6 +85,10 @@ def create_namespace(request):
             if response.status_code != 200:
                 return Response(response.headers, status=response.status_code)
             else:
+                #TODO: Tenant name ekle
+                namespace = UserSpaces(user=request.user, space_url=request.data["name"] + ".tenant.mertsaygi.khas.edu.tr",
+                                    space_type=2)
+                namespace.save()
                 return Response(response.headers, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     else:

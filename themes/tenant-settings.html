@@ -1,22 +1,13 @@
 {% include "header.html" %}
 <!-- Begin page content -->
 <div class="container">
-
-    <div name="notification_container">
-    </div>
-
     <div class="page-header">
-        <h1>Create Namespace Or Tenant</h1>
+        <h1>Tenant Settings</h1>
     </div>
+ <div class="page-body">
 
-    <div class="page-body">
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#tenant">Create Tenant</a></li>
-            <li><a data-toggle="tab" href="#namespace">Create Namespace</a></li>
-        </ul>
-        <div class="tab-content" style="width:100%;">
             <div id="tenant" class="tab-pane fade in active">
-                <h3>Create Tenant</h3>
+                <h3>Modify Tenant</h3>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                     incididunt ut
@@ -30,25 +21,6 @@
                                placeholder="Tenant Name"/>
                     </div>
                     <br/>
-
-                    <!--<div class="input-group" style="width:100%;">
-                        <input type="text" style="width:100%;" name="tspace_uname"
-                               class="form-control span8"
-                               placeholder="Username"/>
-                    </div>
-                    <br/>
-
-                    <div class="input-group" style="width:100%;">
-                        <input type="text" style="width:100%;" name="tspace_pass" class="form-control span8"
-                               placeholder="Password"/>
-                    </div>
-                    <br/>
-
-                    <div class="input-group" style="width:100%;">
-                        <input type="text" style="width:100%;" class="form-control span8"
-                               placeholder="Password Again"/>
-                    </div>
-                    <br/>-->
 
                     <div class="row">
                         <div class="col-lg-4">
@@ -145,53 +117,14 @@
                     <br/>
                     <br/>
                     <input type="hidden" name="form_name" value="tenant">
-                    <button type="submit" class="btn btn-primary" style="width:100%;">Create a Tenant
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Modify Tenant
                     </button>
                 </form>
             </div>
-            <div id="namespace" class="tab-pane fade">
-                <h3>Create NameSpace</h3>
 
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.</p>
 
-                <form id="namespace-form" name="namespace" class="form-horizontal" role="form"
-                      style="width:100%;">
-                    {% csrf_token %}
-                    <div class="input-group" style="width:100%;">
-                        <input type="text" name="nspace_name" style="width:100%;" class="form-control span8"
-                               placeholder="Namespace Name"/>
-                    </div>
-                    <br/>
-
-                    <div class="input-group" style="width:100%;">
-                        <input type="text" style="width:100%;" class="form-control span8"
-                               placeholder="Username"/>
-                    </div>
-                    <br/>
-
-                    <div class="input-group" style="width:100%;">
-                        <input type="text" style="width:100%;" class="form-control span8"
-                               placeholder="Password"/>
-                    </div>
-                    <br/>
-
-                    <div class="input-group" style="width:100%;">
-                        <input type="text" style="width:100%;" class="form-control span8"
-                               placeholder="Password Again"/>
-                    </div>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <input type="hidden" name="form_name" value="namespace">
-                    <button type="submit" class="btn btn-primary" style="width:100%;">Create a Namespace
-                    </button>
-
-                </form>
-            </div>
-        </div>
     </div>
 
-</div>
 
+</div>
 {% include "footer.html" %}

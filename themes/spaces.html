@@ -36,11 +36,11 @@
                                 <a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Open
                                     {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                             <li>
-                                <a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Modify
+                                <a href="{% if space.space_type == 1 %} /namespaces/settings/{{space.id}}{% else %} /tenant/settings/{{space.id}}{% endif %}">Modify
                                     {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Delete
+                                <a href="{% if space.space_type == 1 %} /namespaces/remove/{{space.id}}{% else %} /tenant/remove/{{space.id}}{% endif %}">Delete
                                     {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                         </ul>
                     </div>

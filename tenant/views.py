@@ -8,3 +8,8 @@ AREA_CODE = 2 # 0 space , 1 namespace , 2 tenant
 def main(request,pk):
     area_code = AREA_CODE
     return render_to_response('tenant.html',locals())
+
+@login_required(login_url='/login/')
+def tenant_settings(request,pk):
+    area_code = AREA_CODE
+    return render_to_response('tenant-settings.html',locals())
