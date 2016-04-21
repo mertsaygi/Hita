@@ -17,7 +17,12 @@ $("#tenant-form").submit(function(event) {
         systemVisibleDescription: "Created from management api",
         hardQuota : $('input[name*=tspace_hardQuota]').val()+" "+$("#storage_unit_selection").html(),
         softQuota : $('input[name*=tspace_softQuota]').val(),
-        namespaceQuota : $('input[name*=tspace_namespaceQuota]').val()
+        namespaceQuota : $('input[name*=tspace_namespaceQuota]').val(),
+        complianceConfigurationEnabled : $('input[name*=complianceConfigurationEnabled]').val(),
+        versioningConfigurationEnabled : $('input[name*=versioningConfigurationEnabled]').val(),
+        searchConfigurationEnabled : $('input[name*=searchConfigurationEnabled]').val(),
+        replicationConfigurationEnabled : $('input[name*=replicationConfigurationEnabled]').val(),
+        servicePlanSelectionEnabled : $('input[name*=servicePlanSelectionEnabled]').val()
     };
 
     console.log(JSON.stringify(postData));
