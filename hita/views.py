@@ -96,6 +96,10 @@ def spaces(request):
 def create(request):
     area_code = AREA_CODE
     csrf_token = get_or_create_csrf_token(request)
+    try:
+        hitatoken = UserProfile.objects.filter(user=request.user).token_string
+    except:
+        print "No Token"
     return render_to_response('create.html',locals())
 
 @active_and_login_required

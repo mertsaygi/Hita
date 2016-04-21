@@ -21,7 +21,6 @@ $("#tenant-form").submit(function(event) {
         complianceConfigurationEnabled : $('input[name*=complianceConfigurationEnabled]').val(),
         versioningConfigurationEnabled : $('input[name*=versioningConfigurationEnabled]').val(),
         searchConfigurationEnabled : $('input[name*=searchConfigurationEnabled]').val(),
-        replicationConfigurationEnabled : $('input[name*=replicationConfigurationEnabled]').val(),
         servicePlanSelectionEnabled : $('input[name*=servicePlanSelectionEnabled]').val()
     };
 

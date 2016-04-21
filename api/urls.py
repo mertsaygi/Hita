@@ -10,6 +10,6 @@ urlpatterns = patterns('hita.api.views',
     url(r'^get-tenants/', views.get_tenants, name='get_tenants'),
     url(r'^delete-tenant/(?P<pk>[0-9]+)$', views.delete_tenant, name='delete_tenant'),
     url(r'^create-tenant/', views.create_tenant, name='create_tenant'),
-    url(r'^get-namespaces/', views.get_namespaces, name='get_namespaces'),
+    url(r'^get-namespaces/(?P<pk>[0-9]+)$', views.get_namespaces, name='get_namespaces'),
     url(r'^create-namespace/', views.create_namespace, name='create_namespace'),
 )
