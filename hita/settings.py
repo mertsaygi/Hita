@@ -149,8 +149,6 @@ TEMPLATES = [
 ENVIRONMENTS = ["PRODUCTION","TEST","DEVELOPMENT"]
 ENVIRONMENT = ENVIRONMENTS[2]
 
-APPEND_SLASH=False
-
 AUTH_KEY = "bXNheWdp:65f612d5e6bfba42b9961bf2767e7b5d"
 
 # E-Mail Configurations
@@ -164,5 +162,8 @@ EMAIL_USE_TLS = True
 # HCP Configurations
 
 MAIN_IP = "192.168.1.51"
+
+MASTER_USER = "security"
+MASTER_PASS = "aSfR3q13"
 
 # End Of HCP Configurations

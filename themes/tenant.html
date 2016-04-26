@@ -2,6 +2,7 @@
 <!-- Begin page content -->
 <div class="container">
     <div class="table-responsive" style="overflow-x: visible;">
+        {% if user_spaces.count > 0 %}
         <table class="table table-hover">
             <thead>
             <tr>
@@ -11,10 +12,11 @@
             </tr>
             </thead>
             <tbody>
+            {% for space in user_spaces %}
             <tr>
                 <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
                 </td>
-                <td>My Tenant</td>
+                <td>{{ space.space_name }}</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
@@ -22,237 +24,33 @@
                             Actions <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li>
+                                <a href="{% if space.space_type == 1 %} /namespaces/{{space.id}}{% else %} /tenant/{{space.id}}{% endif %}">Open
+                                    {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
+                            <li>
+                                <a href="{% if space.space_type == 1 %} /namespaces/settings/{{space.id}}{% else %} /tenant/settings/{{space.id}}{% endif %}">Modify
+                                    {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+                            <li>
+                                <a href="{% if space.space_type == 1 %} /namespaces/remove/{{space.id}}{% else %} /tenant/remove/{{space.id}}{% endif %}">Delete
+                                    {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                         </ul>
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="http://www.myiconfinder.com/uploads/iconsets/16-16-99f1e738415e2d1a59fb1acc365a2331.png"/>
-                </td>
-                <td>My Tenant</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Actions <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
+            {% endfor %}
             </tbody>
         </table>
+    </div>
+    {% else %}
+    <div class="empty-container center-block text-center">
+        <i class="glyphicon glyphicon glyphicon-cloud-upload gi-5x wrapper"></i>
+        <br/>
+        <br/>
+        <h4>No namespace you have</h4>
+        <p>If you want to upload any file, you have to <a href="/create-namespace/?container={{ nspace_container }}">create namespace</a> buttons on top left...</p>
+    </div>
+    {% endif %}
     </div>
 </div>
 {% include "footer.html" %}

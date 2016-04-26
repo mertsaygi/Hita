@@ -17,15 +17,3 @@ class TenantCreateSerializer(serializers.Serializer):
 
 class NamespaceCreateSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=255)
-    description = serializers.CharField(max_length=255)
-    hashScheme = serializers.CharField(max_length=255)
-    enterpriseMode = serializers.BooleanField(default=False)
-    hardQuota = serializers.CharField(max_length=255)
-    softQuota = serializers.CharField(max_length=255)
-    aclsUsage = serializers.CharField(max_length=255)
-    searchEnabled = serializers.BooleanField(default=False)
-    indexingEnabled = serializers.BooleanField(default=False)
-    customMetadataIndexingEnabled = serializers.BooleanField(default=False)
-    replicationEnabled = serializers.BooleanField(default=False)
-    readFromReplica = serializers.BooleanField(default=False)
-    serviceRemoteSystemRequests = serializers.BooleanField(default=False)

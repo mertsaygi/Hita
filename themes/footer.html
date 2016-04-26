@@ -19,8 +19,9 @@
             </div>
             <div class="modal-body">
                 <div id="dropzone">
-                    <form action="http://www.torrentplease.com/dropzone.php" class="dropzone dz-clickable"
+                    <form action="/api/upload/{{ nspace }}"  method="post" enctype="multipart/form-data" class="dropzone dz-clickable"
                           id="demo-upload">
+                        {% csrf_token %}
                         <div class="dz-message">Drop files here or click to upload.
                             <br>
                             <span class="note">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>

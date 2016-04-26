@@ -62,13 +62,15 @@ $("#namespace-form").submit(function(event) {
 
     var postData = {
         name: $('input[name*=nspace_name]').val(),
+        hardQuota : $('input[name*=nspace_hardQuota]').val()+" "+$("#storage_unit_selection").html(),
+        softQuota : $('input[name*=nspace_softQuota]').val()
     };
 
     console.log(JSON.stringify(postData));
-    console.log(BASE_URL+"create-tenant/");
+    console.log(BASE_URL+"create-namespace/"+$('input[name*=nspace_container]').val());
 
     $.ajax({
-    url : BASE_URL+"create-namespace/",
+    url : BASE_URL+"create-namespace/"+$('input[name*=nspace_container]').val(),
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify(postData),
@@ -84,10 +86,9 @@ $("#namespace-form").submit(function(event) {
     },
     error: function (jqXHR, textStatus, errorThrown)
     {
-        console.log(textStatus);
-        console.log(jqXHR);
+        var json = $.parseJSON(jqXHR.responseText);
         var n = noty({
-            text: errorThrown+" "+jqXHR.responseText,
+            text: json["X-HCP-ErrorMessage"],
             layout: 'top',
             type: 'error'
         });

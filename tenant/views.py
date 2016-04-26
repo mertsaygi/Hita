@@ -9,6 +9,8 @@ AREA_CODE = 2 # 0 space , 1 namespace , 2 tenant
 @login_required(login_url='/login/')
 def main(request,pk):
     area_code = AREA_CODE
+    nspace_container = pk
+    user_spaces = UserSubspaces.objects.filter(user=request.user)
     return render_to_response('tenant.html',locals())
 
 @login_required(login_url='/login/')
@@ -16,8 +18,7 @@ def remove_tenant(request,pk):
     area_code = AREA_CODE
     user_profile = UserProfile.objects.filter(user=request.user)
     if user_profile.count() > 0:
-        response = requests.get(
-            'http://127.0.0.1:8000/api/delete-tenant/'+pk)
+        response = requests.get('http://127.0.0.1:8000/api/delete-tenant/'+pk)
         if response.status_code != 200:
             return HttpResponse(response)
         else:

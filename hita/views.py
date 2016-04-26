@@ -106,6 +106,7 @@ def create(request):
 def create_namespace(request):
     area_code = AREA_CODE
     csrf_token = get_or_create_csrf_token(request)
+    nspace_container = request.GET["container"]
     return render_to_response('create_namespace.html',locals())
 
 @login_required(login_url='/login/')
