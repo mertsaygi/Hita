@@ -11,6 +11,7 @@ import hashlib
 import base64
 import pycurl
 import StringIO
+import xml.etree.ElementTree as ET
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 
@@ -22,12 +23,13 @@ def getTokenString():
 def main(request):
     return HttpResponseRedirect('docs/')
 
+@api_view(['POST'])
 def upload_file(request,pk):
     uploaded_file = request.FILES['file']
     token = "hcp-ns-auth="+getTokenString()
     CLUSTER = "https://test.mertmain.mertsaygi.khas.edu.tr/rest/"
     FN = str(uploaded_file.name)
-    path = default_storage.save('tmp/somename.mp3', ContentFile(uploaded_file.read()))
+    path = default_storage.save('tmp/'+uploaded_file.name, ContentFile(uploaded_file.read()))
     path = os.path.join(settings.MEDIA_ROOT, path)
     cin = StringIO.StringIO()
     filehandle = open(path, 'r')
@@ -44,6 +46,17 @@ def upload_file(request,pk):
     curl.setopt(pycurl.WRITEFUNCTION, cin.write)
     curl.perform()
     return Response("", status=pycurl.RESPONSE_CODE)
+
+@api_view(['GET'])
+def get_files(request,pk):
+    tenant_object = UserSubspaces.objects.get(pk=pk)
+    CLUSTER = tenant_object.space_url.lower()+"/rest/"
+    headers = {'content-type': 'application/xml','accept': 'application/xml','Authorization': 'HCP '+getTokenString()}
+    response = requests.get(CLUSTER,headers=headers, verify=False)
+    #TODO: XML to JSON
+    print ET.fromstring(response.text)
+    return Response("", status=response.status_code, content_type="application/xml")
+
 
 @api_view(['POST'])
 def create_tenant(request):

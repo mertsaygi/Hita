@@ -76,6 +76,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hita.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework_xml.renderers.XMLRenderer'
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework_xml.parsers.XMLParser',
+    )
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
