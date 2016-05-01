@@ -157,3 +157,44 @@ $(".delete-file").click(function (event) {
             });
 
 });
+
+$(".create-folder").click(function (event) {
+
+        event.preventDefault();
+        var postData = {
+            folder_name: "foo",
+            namespace_id: 1
+        };
+
+         $.ajax({
+            url : BASE_URL+"folder/create/",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(postData),
+            success: function(data, textStatus, jqXHR)
+            {
+                console.log(textStatus);
+                console.log(jqXHR.status);
+                var n = noty({
+                    text: 'Your folder created successfully!',
+                    layout: 'top',
+                    type: 'success'
+                });
+                function reLoad(){
+                    window.location.reload();
+                }
+                setTimeout(reLoad, 2000);
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                var json = $.parseJSON(jqXHR.responseText);
+                var n = noty({
+                    text: textStatus,
+                    layout: 'top',
+                    type: 'error'
+                });
+            }
+
+            });
+
+});

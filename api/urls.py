@@ -6,8 +6,10 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('hita.api.views',
     url(r'^$', views.main, name="home"),
     url(r'^docs/', include('rest_framework_swagger.urls')),
+    # Folder Processes
+    url(r'^folder/create/', views.create_folder, name='create_folder'),
     # File Processes
-    url(r'^files/(?P<pk>[0-9]+)$/(?P<file>[\w\-]+)/$', views.get_file, name='get_file'),
+    url(r'^files/(?P<pk>[0-9]+)/(?P<file>.+)$', views.get_file, name='get_file'),
     url(r'^files/upload/(?P<pk>[0-9]+)$', views.upload_file, name='upload_file'),
     url(r'^files/list/(?P<pk>[0-9]+)$', views.get_files, name='get_files'),
     url(r'^files/delete/', views.delete_files, name='delete_files'),

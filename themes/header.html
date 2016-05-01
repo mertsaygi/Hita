@@ -50,20 +50,16 @@
                     <li><a href="/create/">Create Tenant or Namespace</a></li>
                 {% elif area_code == 1 %}
                     <li><a href="#upload-file" data-toggle="modal" data-target="#upload-file">Upload File(s)</a></li>
-                {% else %}
-                    <li><a href="/create-namespace/?container={{ nspace_container }}">Create Namespace</a></li>
-                {% endif %}
-                <!---<li class="dropdown">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Actions<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Billing and Cost Management</a></li>
-                        <li><a href="#">Settings and Management</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Sign out</a></li>
+                        <li><a href="#" class="create-folder">Create Folder</a></li>
                     </ul>
-                </li>--->
+                </li>
+                {% else %}
+                    <li><a href="/create-namespace/?container={{ nspace_container }}">Create Namespace</a></li>
+                {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

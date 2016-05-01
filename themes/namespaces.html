@@ -19,9 +19,11 @@
             <tr>
                 <td><input type="checkbox" value=""></td>
                 <td>
-
+                    {% if d.type == "directory" %}
+                    <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/opened_folder-16.png"/>
+                    {% else %}
                     <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/12.File-16.png"/>
-
+                    {% endif %}
                 </td>
                 <td>{{ d.utf8Name }}</td>
                 <td>{{ d.type }}</td>
@@ -36,7 +38,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="#">Open File</a></li>
-                            <li><a href="#">Download File</a></li>
+                            <li><a href="/api/files/{{ nspace }}/{{ d.utf8Name }}">Download File</a></li>
                             <li><a href="#">Manage File</a></li>
                             <li><a href="#">Share File</a></li>
                             <li role="separator" class="divider"></li>

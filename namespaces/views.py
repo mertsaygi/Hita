@@ -20,9 +20,13 @@ def main(request,pk):
     csrf_token = get_or_create_csrf_token(request)
     area_code = AREA_CODE
     nspace = pk
-    response = requests.get("http://127.0.0.1:8000/api/files/list/"+str(nspace),verify=False)
-    user_files = response.json()
-    return render_to_response('namespaces.html',locals())
+    try:
+        space = UserSubspaces.objects.get(pk=nspace)
+        response = requests.get("http://127.0.0.1:8000/api/files/list/"+str(nspace),verify=False)
+        user_files = response.json()
+        return render_to_response('namespaces.html',locals())
+    except UserSubspaces.DoesNotExist:
+        return HttpResponseRedirect('/spaces/')
 
 @login_required(login_url='/login/')
 def remove_namespace(request,pk):

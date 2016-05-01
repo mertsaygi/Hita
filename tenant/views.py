@@ -10,7 +10,10 @@ AREA_CODE = 2 # 0 space , 1 namespace , 2 tenant
 def main(request,pk):
     area_code = AREA_CODE
     nspace_container = pk
-    user_spaces = UserSubspaces.objects.filter(user=request.user,parent_space=UserSpaces.objects.get(pk=pk))
+    try:
+        user_spaces = UserSubspaces.objects.filter(user=request.user,parent_space=UserSpaces.objects.get(pk=pk))
+    except UserSpaces.DoesNotExist:
+        return HttpResponseRedirect('/spaces/')
     return render_to_response('tenant.html',locals())
 
 @login_required(login_url='/login/')
