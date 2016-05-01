@@ -30,6 +30,8 @@ def main(request):
 def login(request):
     csrf_token = get_or_create_csrf_token(request)
     username = password = ''
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/spaces/')
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
