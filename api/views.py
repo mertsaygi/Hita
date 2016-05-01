@@ -25,9 +25,22 @@ def main(request):
 
 @api_view(['GET'])
 def get_file(request,pk,file):
-    print pk
-    print file
-    return Response(pk+" "+file, status=status.HTTP_400_BAD_REQUEST)
+    tenant_object = UserSubspaces.objects.get(pk=pk)
+    token = "hcp-ns-auth="+getTokenString()
+    CLUSTER = tenant_object.space_url+"/rest/"+file
+    f = open('/tmp/'+file, 'wb')
+    curl = pycurl.Curl()
+    curl.setopt(pycurl.URL, CLUSTER)
+    curl.setopt(pycurl.COOKIE, token)
+    curl.setopt(pycurl.SSL_VERIFYPEER, 0)
+    curl.setopt(pycurl.SSL_VERIFYHOST, 0)
+    curl.setopt(pycurl.WRITEFUNCTION, f.write)
+    curl.perform()
+    f.close()
+    print f.name
+    curl.close()
+    response = HttpResponse()
+    return response
 
 @api_view(['DELETE'])
 def delete_files(request):
@@ -206,3 +219,33 @@ def delete_namespace(request,pk):
             return Response("Object not found.", status=status.HTTP_400_BAD_REQUEST)
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+@api_view(['POST'])
+def create_folder(request):
+    try:
+        serializer = FolderSerializer(data=request.data)
+        if serializer.is_valid():
+            tenant_object = UserSubspaces.objects.get(pk=serializer.data['namespace_id'])
+            CLUSTER = tenant_object.space_url.lower()+"/rest/"
+            PATH = serializer.data['folder_name']
+            FN = ""
+            OPT = "?type=directory"
+            token = "hcp-ns-auth="+getTokenString()
+            cin = StringIO.StringIO()
+            curl = pycurl.Curl()
+            curl.setopt(pycurl.URL, CLUSTER + PATH + FN + OPT)
+            curl.setopt(pycurl.COOKIE, token)
+            curl.setopt(pycurl.SSL_VERIFYPEER, 0)
+            curl.setopt(pycurl.SSL_VERIFYHOST, 0)
+            curl.setopt(pycurl.CUSTOMREQUEST, "PUT")
+            curl.setopt(pycurl.HEADER, 1)
+            curl.setopt(pycurl.NOBODY, 0)
+            curl.setopt(pycurl.WRITEFUNCTION, cin.write)
+            curl.perform()
+            curl.close()
+            return Response(cin.getvalue(), status=curl.getinfo(pycurl.HTTP_CODE))
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    except Exception as inst:
+        print inst
+        return Response(inst.args, status=status.HTTP_400_BAD_REQUEST)
