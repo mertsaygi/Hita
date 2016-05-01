@@ -11,7 +11,6 @@ import hashlib
 import base64
 import pycurl
 import StringIO
-import xml.etree.ElementTree as ET
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 
@@ -45,7 +44,7 @@ def upload_file(request,pk):
     curl.setopt(pycurl.NOBODY, 0)
     curl.setopt(pycurl.WRITEFUNCTION, cin.write)
     curl.perform()
-    return Response("", status=pycurl.RESPONSE_CODE)
+    return Response(cin.getvalue(), status=curl.getinfo(pycurl.HTTP_CODE))
 
 @api_view(['GET'])
 def get_files(request,pk):
