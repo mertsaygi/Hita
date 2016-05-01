@@ -5,3 +5,4 @@ from management.models import *
 admin.site.register(UserProfile)
 admin.site.register(UserSpaces)
 admin.site.register(UserSubspaces)
+admin.site.register(SystemTenants)

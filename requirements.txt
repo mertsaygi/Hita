@@ -1,6 +1,7 @@
 Django==1.9.4
 PyYAML==3.11
 argparse==1.2.1
+defusedxml==0.4.1
 django-rest-swagger==0.3.4
 djangorestframework==3.3.3
 pycurl==7.43.0

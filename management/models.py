@@ -9,6 +9,20 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User)
     token_string = models.CharField(max_length=255)
 
+class SystemTenants(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User)
+    space_url = models.URLField(blank=False)
+    space_name = models.CharField(max_length=255)
+    space_type = models.IntegerField(choices=[(1, 'namespace'), (2, 'tenant')])
+    created_date = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.user.username+" "+self.space_url
+
+    class Meta:
+        verbose_name_plural = "System Tenants"
+
 class UserSpaces(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User)
