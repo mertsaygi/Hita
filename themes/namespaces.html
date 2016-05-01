@@ -15,14 +15,18 @@
             </tr>
             </thead>
             <tbody>
-
+            {% for d in user_files.directory.entry %}
             <tr>
                 <td><input type="checkbox" value=""></td>
-                <td><img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/12.File-16.png"/></td>
-                <td>Turkcell_Mobil_Uygulamalar_Kilavuzu-28.08.2014.pdf</td>
-                <td>Standard</td>
-                <td>8.2 MB</td>
-                <td>27 February 2016 at 02:46</td>
+                <td>
+
+                    <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/12.File-16.png"/>
+
+                </td>
+                <td>{{ d.utf8Name }}</td>
+                <td>{{ d.type }}</td>
+                <td>{{ d.size }}</td>
+                <td>{{ d.changeTimeString }}</td>
                 <td>
                     <!-- Single button -->
                     <div class="btn-group">
@@ -41,6 +45,7 @@
                     </div>
                 </td>
             </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

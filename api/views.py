@@ -11,6 +11,7 @@ import hashlib
 import base64
 import pycurl
 import StringIO
+from api import xmltodict
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 
@@ -53,8 +54,8 @@ def get_files(request,pk):
     headers = {'content-type': 'application/xml','accept': 'application/xml','Authorization': 'HCP '+getTokenString()}
     response = requests.get(CLUSTER,headers=headers, verify=False)
     #TODO: XML to JSON
-    print ET.fromstring(response.text)
-    return Response("", status=response.status_code, content_type="application/xml")
+    o = xmltodict.parse(response.text)
+    return Response(o, status=response.status_code, content_type="application/json")
 
 
 @api_view(['POST'])
