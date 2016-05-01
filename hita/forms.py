@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from datetime import *
 import json
 import os
+from django.core.mail import send_mail
 from management.models import *
 import hashlib
 import base64
@@ -29,6 +30,7 @@ class RegisterForm(forms.Form):
                 new_user.save()
                 user_profile = UserProfile(user=new_user,token_string=base64.b64encode(self.cleaned_data['username'])+":"+hashlib.md5(self.cleaned_data['password']).hexdigest())
                 user_profile.save()
+                send_mail("Welcome to Hita!", "Welcome To Hita Service", 'myemail@example.com', [self.cleaned_data['email_address']], fail_silently=False)
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)

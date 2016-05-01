@@ -20,7 +20,7 @@ def main(request,pk):
     csrf_token = get_or_create_csrf_token(request)
     area_code = AREA_CODE
     nspace = pk
-    response = requests.get("http://127.0.0.1:8000/api/get-files/"+str(nspace),verify=False)
+    response = requests.get("http://127.0.0.1:8000/api/files/list/"+str(nspace),verify=False)
     user_files = response.json()
     return render_to_response('namespaces.html',locals())
 
@@ -29,7 +29,7 @@ def remove_namespace(request,pk):
     area_code = AREA_CODE
     user_profile = UserProfile.objects.filter(user=request.user)
     if user_profile.count() > 0:
-        response = requests.get('http://127.0.0.1:8000/api/delete-tenant/'+pk)
+        response = requests.get('http://127.0.0.1:8000/api/namespace/delete/'+pk)
         if response.status_code != 200:
             return HttpResponse(response)
         else:

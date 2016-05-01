@@ -18,7 +18,7 @@ def remove_tenant(request,pk):
     area_code = AREA_CODE
     user_profile = UserProfile.objects.filter(user=request.user)
     if user_profile.count() > 0:
-        response = requests.get('http://127.0.0.1:8000/api/delete-tenant/'+pk)
+        response = requests.get('http://127.0.0.1:8000/api/tenant/delete/'+pk)
         if response.status_code != 200:
             return HttpResponse(response)
         else:

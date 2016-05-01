@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from management.models import *
+
+#TODO: Tüm namespace ve tenant parametreleri burada örnek jsonlara göre işlenebilir olmalı.
 
 class TenantCreateSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=255)
@@ -16,4 +19,10 @@ class TenantCreateSerializer(serializers.Serializer):
     servicePlan = serializers.CharField(max_length=255,required=False)
 
 class NamespaceCreateSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=255)
+    description = serializers.CharField(max_length=255)
+    hardQuota = serializers.CharField(max_length=255)
+    softQuota = serializers.CharField(max_length=255)
+
+class FileDeleteSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=255)
