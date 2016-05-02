@@ -28,18 +28,20 @@ def get_file(request,pk,file):
     tenant_object = UserSubspaces.objects.get(pk=pk)
     token = "hcp-ns-auth="+getTokenString()
     CLUSTER = tenant_object.space_url+"/rest/"+file
-    f = open('/tmp/'+file, 'wb')
+    f = open('/tmp/'+file, 'wb+')
+    cin = StringIO.StringIO()
     curl = pycurl.Curl()
     curl.setopt(pycurl.URL, CLUSTER)
     curl.setopt(pycurl.COOKIE, token)
     curl.setopt(pycurl.SSL_VERIFYPEER, 0)
     curl.setopt(pycurl.SSL_VERIFYHOST, 0)
-    curl.setopt(pycurl.WRITEFUNCTION, f.write)
+    curl.setopt(pycurl.WRITEFUNCTION, cin.write)
     curl.perform()
-    f.close()
-    print f.name
     curl.close()
     response = HttpResponse()
+    response['Content-Disposition'] = 'attachment; filename="%s"' % file
+    response.write(cin.getvalue())
+    f.close()
     return response
 
 @api_view(['DELETE'])
