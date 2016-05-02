@@ -29,6 +29,19 @@ def main(request,pk):
         return HttpResponseRedirect('/spaces/')
 
 @login_required(login_url='/login/')
+def view_file(request,pk,file):
+    csrf_token = get_or_create_csrf_token(request)
+    area_code = AREA_CODE
+    nspace = pk
+    try:
+        space = UserSubspaces.objects.get(pk=nspace)
+        response = requests.get("http://127.0.0.1:8000/api/files/list/"+str(nspace),verify=False)
+        user_files = response.json()
+        return render_to_response('namespaces.html',locals())
+    except UserSubspaces.DoesNotExist:
+        return HttpResponseRedirect('/spaces/')
+
+@login_required(login_url='/login/')
 def remove_namespace(request,pk):
     area_code = AREA_CODE
     user_profile = UserProfile.objects.filter(user=request.user)

@@ -37,7 +37,11 @@
                             Actions <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Open File</a></li>
+                            {% if d.type == 'directory' %}
+                                <li><a href="/namespaces/{{ nspace }}/{{ d.utf8Name }}">Open Folder</a></li>
+                            {% else %}
+                                <li><a href="/namespaces/view/{{ nspace }}/{{ d.utf8Name }}">Open File</a></li>
+                            {% endif %}
                             <li><a href="/api/files/{{ nspace }}/{{ d.utf8Name }}">Download File</a></li>
                             <li><a href="#">Manage File</a></li>
                             <li><a href="#">Share File</a></li>
