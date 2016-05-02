@@ -23,7 +23,8 @@
             <li><a data-toggle="tab" href="#paypal">Paypal</a></li>
         </ul>
         <div class="tab-content" style="width:100%;">
-            <div id="credit" class="tab-pane fade in active">
+            <form method="post" action="/payment/" id="credit" class="tab-pane fade in active">
+                {% csrf_token %}
                 <h4>Add Credit Card</h4>
 
                 <div class="page-header">
@@ -98,7 +99,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <select class="form-control">
+                        <select class="form-control" name="country">
                             {% for i in data %}
                             <option value="{{ i.name }}">{{ i.name }}</option>
                             {% endfor %}
@@ -112,14 +113,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group" style="width:100%;">
-                            <input type="text" style="width:100%;" name="postal"
+                            <input type="text" style="width:100%;" name="cardnumber"
                                    class="form-control span8"
                                    placeholder="Credit Card Number"/>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="input-group" style="width:100%;">
-                            <input type="text" style="width:100%;" name="postal"
+                            <input type="text" style="width:100%;" name="cvv"
                                    class="form-control span8"
                                    placeholder="CVV"/>
                         </div>
@@ -132,14 +133,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group" style="width:100%;">
-                            <input type="text" style="width:100%;" name="postal"
+                            <input type="text" style="width:100%;" name="expration"
                                    class="form-control span8"
                                    placeholder="Expires MM/YYYY"/>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="input-group" style="width:100%;">
-                            <input type="text" style="width:100%;" name="postal"
+                            <input type="text" style="width:100%;" name="holdername"
                                    class="form-control span8"
                                    placeholder="Please enter a name for this credit card"/>
                         </div>
@@ -149,7 +150,7 @@
                 <input type="hidden" name="form_name" value="tenant">
                 <button type="submit" class="btn btn-primary" style="width:100%;">Save Credit Card
                 </button>
-            </div>
+            </form>
             <div id="paypal" class="tab-pane fade">
                 <h4>PayPal Payment</h4>
 

@@ -5,6 +5,7 @@ from django.middleware import csrf
 from django.http import *
 from forms import *
 import json
+from models import *
 from management.models import *
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -96,10 +97,16 @@ def forgot(request):
 
 @login_required(login_url='/login/')
 def payment(request):
+    csrf_token = get_or_create_csrf_token(request)
     area_code = AREA_CODE
     error_code = request.GET.get('c')
     data = open(settings.STATIC_URL+ "/staticdata/countries.json").read()
     data = json.loads(data)
+    if request.method == "POST":
+        user_profile = UserProfileSerializer(request.POST.get('firstname'),request.POST.get('lastname'),request.POST.get('phone'),request.POST.get('address'),request.POST.get('city'),request.POST.get('state'),request.POST.get('postal'),request.POST.get('country'))
+        credit_card = CreditCardSerializer(request.POST.get('cardnumber'),request.POST.get('holdername'),request.POST.get('expration'),request.POST.get('cvv'))
+
+        return render_to_response('payment.html', locals())
     return render_to_response('payment.html',locals())
 
 @login_required(login_url='/login/')
