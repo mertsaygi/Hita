@@ -172,3 +172,13 @@ MASTER_USER = "security"
 MASTER_PASS = "aSfR3q13"
 
 # End Of HCP Configurations
+
+# Asecco Credit Card Integration
+
+EST_MERCHANT_ID = "400000200"
+EST_3D_KEY = "TRPS0200"
+EST_RETURN_URL = ENVIRONMENT_URL+"basarili/"
+EST_FAIL_URL = ENVIRONMENT_URL+"basarisiz/"
+EST_3D_URL = 'https://entegrasyon.asseco-see.com.tr/fim/est3Dgate'
+
+# End Of Integration
