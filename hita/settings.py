@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'api',
     'namespaces',
     'tenant',
+    'dashboards',
     'rest_framework_swagger',
     'rest_framework',
 ]
