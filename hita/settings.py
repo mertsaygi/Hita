@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'namespaces',
     'tenant',
     'dashboards',
+    'payment',
     'rest_framework_swagger',
     'rest_framework',
 ]
@@ -177,8 +178,8 @@ MASTER_PASS = "aSfR3q13"
 
 EST_MERCHANT_ID = "400000200"
 EST_3D_KEY = "TRPS0200"
-EST_RETURN_URL = ENVIRONMENT_URL+"basarili/"
-EST_FAIL_URL = ENVIRONMENT_URL+"basarisiz/"
+EST_RETURN_URL = ENVIRONMENT_URL+"payment/success/"
+EST_FAIL_URL = ENVIRONMENT_URL+"payment/fail/"
 EST_3D_URL = 'https://entegrasyon.asseco-see.com.tr/fim/est3Dgate'
 
 # End Of Integration
