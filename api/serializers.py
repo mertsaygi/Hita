@@ -28,6 +28,10 @@ class FileDeleteSerializer(serializers.Serializer):
     namespace_id = serializers.IntegerField()
     name = serializers.CharField(max_length=255)
 
+class FolderDeleteSerializer(serializers.Serializer):
+    namespace_id = serializers.IntegerField()
+    name = serializers.CharField(max_length=255)
+
 class FolderSerializer(serializers.Serializer):
     namespace_id = serializers.IntegerField()
     folder_name = serializers.CharField(max_length=255)
