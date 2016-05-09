@@ -49,8 +49,9 @@ def delete_files(request):
     try:
         serializer = FileDeleteSerializer(data=request.data)
         if serializer.is_valid():
+            tenant_object = UserSubspaces.objects.get(pk=serializer.data['namespace_id'])
             token = "hcp-ns-auth="+getTokenString()
-            CLUSTER = "https://test.mertmain.mertsaygi.khas.edu.tr/rest/"+serializer.data['name']
+            CLUSTER = tenant_object.space_url+"/rest/"+serializer.data['name']
             cin = StringIO.StringIO()
             curl = pycurl.Curl()
             curl.setopt(pycurl.URL, CLUSTER)
@@ -70,9 +71,10 @@ def delete_files(request):
 
 @api_view(['POST'])
 def upload_file(request,pk):
+    tenant_object = UserSubspaces.objects.get(pk=pk)
     uploaded_file = request.FILES['file']
     token = "hcp-ns-auth="+getTokenString()
-    CLUSTER = "https://test.mertmain.mertsaygi.khas.edu.tr/rest/"
+    CLUSTER = tenant_object.space_url+"/rest/"
     FN = str(uploaded_file.name)
     path = default_storage.save('tmp/'+uploaded_file.name, ContentFile(uploaded_file.read()))
     path = os.path.join(settings.MEDIA_ROOT, path)

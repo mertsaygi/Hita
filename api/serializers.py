@@ -25,6 +25,7 @@ class NamespaceCreateSerializer(serializers.Serializer):
     softQuota = serializers.CharField(max_length=255)
 
 class FileDeleteSerializer(serializers.Serializer):
+    namespace_id = serializers.IntegerField()
     name = serializers.CharField(max_length=255)
 
 class FolderSerializer(serializers.Serializer):
