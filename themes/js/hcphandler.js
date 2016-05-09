@@ -1,4 +1,9 @@
-BASE_URL = "http://127.0.0.1:8000/api/"
+
+PROD_URL = "https://192.241.219.84/"
+
+DEV_URL = "https://192.241.219.84/"
+
+BASE_URL = PROD_URL+"api/"
 
 $("#gb").click(function(){
     $("#storage_unit_selection").html("GB");

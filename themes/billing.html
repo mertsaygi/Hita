@@ -5,6 +5,206 @@
         <h1>Billing</h1>
     </div>
 
+    <div class="row">
+        <div class="col-md-3">
+            .col-md-4
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>You Owe
+                        <div style="float:right;">$46.39</div>
+                    </h2>
+                </div>
+                <div class="col-md-6">
+                    <h2>Usage
+                        <div style="float:right;">$46.39</div>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Billing Alerts</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Payment Methods</h2>
+                    <p>Please enter your preferred payment method below. You can use a credit card or prepay through
+                        PayPal.</p>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#credit">Credit Card</a></li>
+                        <li><a data-toggle="tab" href="#paypal">Paypal</a></li>
+                    </ul>
+                    <div class="tab-content" style="width:100%;">
+                        <form method="post" action="/payment/" id="credit" class="tab-pane fade in active">
+                            {% csrf_token %}
+                            <h4>Add Credit Card</h4>
+                            <div class="page-header">
+                                <h5>YOUR DETAILS</h5>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="firstname"
+                                               class="form-control span8"
+                                               placeholder="First Name"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="lastname"
+                                               class="form-control span8"
+                                               placeholder="Last Name"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"><p></p></div>
+                                <div class="col-md-6"><p></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="phone"
+                                               class="form-control"
+                                               placeholder="Phone Number"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="address"
+                                               class="form-control span8"
+                                               placeholder="Street Address"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"><p></p></div>
+                                <div class="col-md-6"><p></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="city"
+                                               class="form-control span8"
+                                               placeholder="City"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="state"
+                                               class="form-control span8"
+                                               placeholder="State"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"><p></p></div>
+                                <div class="col-md-6"><p></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="postal"
+                                               class="form-control span8"
+                                               placeholder="Postal Code"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <select class="form-control" name="country">
+                                        {% for i in data %}
+                                        <option value="{{ i.name }}">{{ i.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
 
+                            <div class="page-header">
+                                <h5>CREDIT CARD DETAILS</h5>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="cardnumber"
+                                               class="form-control span8"
+                                               placeholder="Credit Card Number"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="cvv"
+                                               class="form-control span8"
+                                               placeholder="CVV"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"><p></p></div>
+                                <div class="col-md-6"><p></p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="expration"
+                                               class="form-control span8"
+                                               placeholder="Expires MM/YYYY"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group" style="width:100%;">
+                                        <input type="text" style="width:100%;" name="holdername"
+                                               class="form-control span8"
+                                               placeholder="Please enter a name for this credit card"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <input type="hidden" name="form_name" value="tenant">
+                            <button type="submit" class="btn btn-primary" style="width:100%;">Save Credit Card
+                            </button>
+                        </form>
+                        <div id="paypal" class="tab-pane fade">
+                            <h4>PayPal Payment</h4>
+
+                            <p>This is a one-time payment that will not recur. Payment may take up to 5 minutes to
+                                process.</p>
+
+                            <select class="form-control">
+                                {% if error_code == "900" %}
+                                <option value="one">$1.00 USD</option>
+                                {% else %}
+                                <option value="one">$5.00 USD</option>
+                                <option value="two">$10.00 USD</option>
+                                <option value="three">$25.00 USD</option>
+                                <option value="four">$50.00 USD</option>
+                                <option value="five">$100.00 USD</option>
+                                {% endif %}
+                            </select>
+
+                            <br/>
+                            <input type="hidden" name="form_name" value="tenant">
+                            <button type="submit" class="btn btn-primary" style="width:100%;">Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Promo Code</h2>
+                    <p>If you have a promo code, please enter it below to receive your credit</p>
+                    <input type="text" style="width:100%;" name="promocode"
+                                   class="form-control span8"
+                                   placeholder="Promo Code"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Billing History</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% include "footer.html" %}
