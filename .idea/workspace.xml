@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e7a3165-56c9-49ce-8a44-bde07024f012" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dashboards/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/payment/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/payment/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/payment/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/payment/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/payment/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/payment/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/payment/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/payment/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboards/__init__.py" afterPath="$PROJECT_DIR$/dashboards/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboards/admin.py" afterPath="$PROJECT_DIR$/dashboards/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboards/apps.py" afterPath="$PROJECT_DIR$/dashboards/apps.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboards/models.py" afterPath="$PROJECT_DIR$/dashboards/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboards/tests.py" afterPath="$PROJECT_DIR$/dashboards/tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboards/views.py" afterPath="$PROJECT_DIR$/dashboards/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hita/models.py" afterPath="$PROJECT_DIR$/hita/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hita/settings.py" afterPath="$PROJECT_DIR$/hita/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hita/urls.py" afterPath="$PROJECT_DIR$/hita/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hita/views.py" afterPath="$PROJECT_DIR$/hita/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/payment.html" afterPath="$PROJECT_DIR$/themes/payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
     </list>
     <ignored path="hita.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +24,37 @@
     <favorites_list name="hita" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="258" column="32" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+              <folding>
+                <element signature="e#24#57#0" expanded="true" />
+                <element signature="e#477#624#0" expanded="false" />
+                <element signature="e#652#809#0" expanded="false" />
+                <element signature="e#834#870#0" expanded="false" />
+                <element signature="e#939#1588#0" expanded="false" />
+                <element signature="e#1643#2707#0" expanded="false" />
+                <element signature="e#2762#3730#0" expanded="false" />
+                <element signature="e#3782#4416#0" expanded="false" />
+                <element signature="e#4483#5804#0" expanded="false" />
+                <element signature="e#5863#6895#0" expanded="false" />
+                <element signature="e#6953#7548#0" expanded="false" />
+                <element signature="e#7626#9229#0" expanded="false" />
+                <element signature="e#9291#10102#0" expanded="false" />
+                <element signature="e#10206#10757#0" expanded="false" />
+                <element signature="e#10817#11489#0" expanded="false" />
+                <element signature="e#11590#11636#0" expanded="false" />
+                <element signature="e#11705#12937#0" expanded="false" />
+                <element signature="e#12996#14068#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,7 +102,6 @@
         <option value="$PROJECT_DIR$/themes/js/hcphandler.js" />
         <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/api/serializers.py" />
-        <option value="$PROJECT_DIR$/api/views.py" />
         <option value="$PROJECT_DIR$/themes/tenant.html" />
         <option value="$PROJECT_DIR$/themes/spaces.html" />
         <option value="$PROJECT_DIR$/themes/css/signin.css" />
@@ -104,6 +115,7 @@
         <option value="$PROJECT_DIR$/hita/settings.py" />
         <option value="$PROJECT_DIR$/themes/payment.html" />
         <option value="$PROJECT_DIR$/payment/views.py" />
+        <option value="$PROJECT_DIR$/api/views.py" />
       </list>
     </option>
   </component>
@@ -472,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462812292055</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Sandbox modda kredi kartı entegrasyonu çalışıyor">
+      <created>1462833802399</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1462833802399</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -486,15 +505,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="-4" width="1317" height="772" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2368214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2368214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030912" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.4969088" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271605" sideWeight="0.4969088" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20377655" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27006173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2685185" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -562,11 +581,12 @@
     <MESSAGE value="dashboards has been started" />
     <MESSAGE value="some design issues" />
     <MESSAGE value="Credit card test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Credit card test" />
+    <MESSAGE value="Sandbox modda kredi kartı entegrasyonu çalışıyor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sandbox modda kredi kartı entegrasyonu çalışıyor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -724,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tenant/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-98">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -742,14 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="10" column="47" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/management/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -774,14 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="322" column="21" selection-start-line="322" selection-start-column="21" selection-end-line="323" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -926,6 +923,49 @@
             <element signature="e#532#758#0" expanded="false" />
             <element signature="e#803#1016#0" expanded="false" />
             <element signature="e#3549#3816#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/management/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tenant/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="258" column="32" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+          <folding>
+            <element signature="e#24#57#0" expanded="true" />
+            <element signature="e#477#624#0" expanded="false" />
+            <element signature="e#652#809#0" expanded="false" />
+            <element signature="e#834#870#0" expanded="false" />
+            <element signature="e#939#1588#0" expanded="false" />
+            <element signature="e#1643#2707#0" expanded="false" />
+            <element signature="e#2762#3730#0" expanded="false" />
+            <element signature="e#3782#4416#0" expanded="false" />
+            <element signature="e#4483#5804#0" expanded="false" />
+            <element signature="e#5863#6895#0" expanded="false" />
+            <element signature="e#6953#7548#0" expanded="false" />
+            <element signature="e#7626#9229#0" expanded="false" />
+            <element signature="e#9291#10102#0" expanded="false" />
+            <element signature="e#10206#10757#0" expanded="false" />
+            <element signature="e#10817#11489#0" expanded="false" />
+            <element signature="e#11590#11636#0" expanded="false" />
+            <element signature="e#11705#12937#0" expanded="false" />
+            <element signature="e#12996#14068#0" expanded="false" />
           </folding>
         </state>
       </provider>

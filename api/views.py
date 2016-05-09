@@ -15,6 +15,13 @@ from api import xmltodict
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 
+def get_pretty_url(url):
+    if "http://" in url:
+        url = url.replace("http://", "https://")
+    elif "https://" not in url:
+        url = "https://" + url
+    return url
+
 def getTokenString():
     encoded_data = base64.b64encode(settings.MASTER_USER)
     hash_object = hashlib.md5(settings.MASTER_PASS)
@@ -22,6 +29,8 @@ def getTokenString():
 
 def main(request):
     return HttpResponseRedirect('docs/')
+
+# File Area
 
 @api_view(['GET'])
 def get_file(request,pk,file):
@@ -109,6 +118,8 @@ def get_files(request,pk):
         o = xmltodict.parse(response.text)
         return Response(o, status=response.status_code, content_type="application/json")
 
+# Tenant Area
+
 @api_view(['POST'])
 def create_tenant(request):
     if request.method == 'POST':
@@ -155,32 +166,18 @@ def delete_tenant(request,pk):
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
-@api_view(['POST'])
-def create_single_namespace(request,pk):
-    if request.method == 'POST':
-        tenant_object = UserSpaces.objects.get(pk=pk)
-        try:
-            serializer = NamespaceCreateSerializer(data=request.data)
-            if serializer.is_valid():
-                headers = {'content-type': 'application/json','Authorization': 'HCP '+getTokenString()}
-                response = requests.put(
-	                'https://31.145.7.26:9090/mapi/tenants/'+tenant_object.space_url.replace(".mertsaygi.khas.edu.tr", "")+'/namespaces?username='+settings.MASTER_USER+'&password='+settings.MASTER_PASS+'&forcePasswordChange=false',
-	                json= serializer.data,
-	                headers=headers,
-	                verify=False)
-                if response.status_code != 200:
-                    return Response(response.headers, status=response.status_code)
-                else:
-                    #TODO: Tenant name ekle
-                    namespace = UserSpaces(user=request.user, space_url=request.data["name"] + ".tenant.mertsaygi.khas.edu.tr",
-                                    space_type=1)
-                    namespace.save()
-                    return Response(response.headers, status=status.HTTP_200_OK)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        except Exception as inst:
-            return Response(inst.args, status=status.HTTP_400_BAD_REQUEST)
-    else:
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+@api_view(['GET'])
+def get_tenant_info(request,pk):
+    tenant_object = UserSpaces.objects.get(pk=pk)
+    CLUSTER = 'https://'+tenant_object.space_url+':9090/mapi/tenants/'+tenant_object.space_url.replace(".mertsaygi.khas.edu.tr", "")
+    headers = {'content-type': 'application/xml','accept': 'application/xml','Authorization': 'HCP '+getTokenString()}
+    response = requests.get(CLUSTER,headers=headers, verify=False)
+    if response.status_code != 200:
+        return Response(response.headers, status=response.status_code)
+    o = xmltodict.parse(response.text)
+    return Response(o, status=response.status_code, content_type="application/json")
+
+# Namespace Area
 
 @api_view(['POST'])
 def create_namespace(request,pk):
@@ -190,8 +187,9 @@ def create_namespace(request,pk):
             serializer = NamespaceCreateSerializer(data=request.data)
             if serializer.is_valid():
                 headers = {'content-type': 'application/json','Authorization': 'HCP '+getTokenString()}
-                response = requests.put(
-	                'https://'+tenant_object.space_url+':9090/mapi/tenants/'+tenant_object.space_url.replace(".mertsaygi.khas.edu.tr", "")+'/namespaces',
+                url = tenant_object.space_url+':9090/mapi/tenants/'+tenant_object.space_url.replace(".mertsaygi.khas.edu.tr", "")+'/namespaces'
+                url = get_pretty_url(url)
+                response = requests.put(url,
 	                json= serializer.data,
 	                headers=headers,
 	                verify=False)
@@ -201,7 +199,7 @@ def create_namespace(request,pk):
                     namespace = UserSubspaces(parent_space=tenant_object,user=request.user, space_url=request.data["name"] + "."+tenant_object.space_url,
                                     space_type=1,space_name=request.data["name"])
                     namespace.save()
-                    os.system('echo "31.145.7.26 '+namespace.space_name + "."+tenant_object.space_url + ' >> /etc/hosts')
+                    os.system('echo "31.145.7.26 '+namespace.space_name + '.'+tenant_object.space_url +'" >> /etc/hosts')
                     grant_namespace_authentication(namespace)
                     return Response(response.headers, status=status.HTTP_200_OK)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -230,30 +228,41 @@ def delete_namespace(request,pk):
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
-@api_view(['DELETE'])
-def delete_folder(request,pk):
-    try:
-        serializer = FolderDeleteSerializer(data=request.data)
-        if serializer.is_valid():
-            tenant_object = UserSubspaces.objects.get(pk=serializer.data['namespace_id'])
-            token = "hcp-ns-auth=" + getTokenString()
-            CLUSTER = tenant_object.space_url + "/rest/" + serializer.data['name']
-            cin = StringIO.StringIO()
-            curl = pycurl.Curl()
-            curl.setopt(pycurl.URL, CLUSTER)
-            curl.setopt(pycurl.COOKIE, token)
-            curl.setopt(pycurl.SSL_VERIFYPEER, 0)
-            curl.setopt(pycurl.SSL_VERIFYHOST, 0)
-            curl.setopt(pycurl.HEADER, 1)
-            curl.setopt(pycurl.WRITEFUNCTION, cin.write)
-            curl.setopt(pycurl.CUSTOMREQUEST, "DELETE")
-            curl.perform()
-            return Response(cin.getvalue(), status=curl.getinfo(pycurl.HTTP_CODE))
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    except Exception as inst:
-        print inst
-        return Response(inst.args, status=status.HTTP_400_BAD_REQUEST)
+# Tenant or Namespace level authentication methods
+
+def grant_tenant_authentication(tenant_object):
+    import json
+    json_data = '{"roles" : {"role" : [ "COMPLIANCE", "MONITOR", "SECURITY", "ADMINISTRATOR" ]}}'
+    headers = {'content-type': 'application/json', 'Authorization': 'HCP ' + getTokenString()}
+    response = requests.post(
+        'https://' + tenant_object.space_url + ':9090/mapi/tenants/' + tenant_object.space_url.replace(
+            ".mertsaygi.khas.edu.tr", "") + '/userAccounts/'+settings.MASTER_USER,
+        json=json.loads(json_data),
+        headers=headers,
+        verify=False)
+    print response.headers
+    return response
+
+def grant_namespace_authentication(namespace_object):
+    import json
+    json_data = '{"namespacePermission":[{"namespaceName" : "'+namespace_object.space_name+'","permissions" : {"permission" : [ "BROWSE", "READ", "SEARCH", "PURGE", "DELETE", "WRITE" ]}}]}'
+    headers = {'content-type': 'application/json', 'Authorization': 'HCP ' + getTokenString()}
+    url = namespace_object.parent_space.space_url + ':9090/mapi/tenants/' + namespace_object.parent_space.space_name + '/userAccounts/' + settings.MASTER_USER+ "/dataAccessPermissions"
+    url = get_pretty_url(url)
+    response = requests.post(url,
+        json=json.loads(json_data),
+        headers=headers,
+        verify=False)
+    print response.text
+    return response
+
+# Single Namespace Creation Area
+
+@api_view(['POST'])
+def create_single_namespace(request,pk):
+    return Response("", status=status.HTTP_200_OK)
+
+# Folder Area
 
 @api_view(['POST'])
 def create_folder(request):
@@ -285,41 +294,27 @@ def create_folder(request):
         print inst
         return Response(inst.args, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET'])
-def get_tenant_info(request,pk):
-    tenant_object = UserSpaces.objects.get(pk=pk)
-    CLUSTER = 'https://'+tenant_object.space_url+':9090/mapi/tenants/'+tenant_object.space_url.replace(".mertsaygi.khas.edu.tr", "")
-    headers = {'content-type': 'application/xml','accept': 'application/xml','Authorization': 'HCP '+getTokenString()}
-    response = requests.get(CLUSTER,headers=headers, verify=False)
-    if response.status_code != 200:
-        return Response(response.headers, status=response.status_code)
-    o = xmltodict.parse(response.text)
-    return Response(o, status=response.status_code, content_type="application/json")
-
-# Tenant or Namespace level authentication methods
-
-def grant_tenant_authentication(tenant_object):
-    import json
-    json_data = '{"roles" : {"role" : [ "COMPLIANCE", "MONITOR", "SECURITY", "ADMINISTRATOR" ]}}'
-    headers = {'content-type': 'application/json', 'Authorization': 'HCP ' + getTokenString()}
-    response = requests.post(
-        'https://' + tenant_object.space_url + ':9090/mapi/tenants/' + tenant_object.space_url.replace(
-            ".mertsaygi.khas.edu.tr", "") + '/userAccounts/'+settings.MASTER_USER,
-        json=json.loads(json_data),
-        headers=headers,
-        verify=False)
-    print response.headers
-    return response
-
-def grant_namespace_authentication(namespace_object):
-    import json
-    # TODO: Hata var akıllı ol!!
-    json_data = '{"namespacePermission":[{"namespaceName" : "'+namespace_object.space_name+'","permissions" : {"permission" : [ "BROWSE", "READ", "SEARCH", "PURGE", "DELETE", "WRITE" ]}}]}'
-    headers = {'content-type': 'application/json', 'Authorization': 'HCP ' + getTokenString()}
-    response = requests.post(
-        'https://' + namespace_object.parent_space.space_url + ':9090/mapi/tenants/' + namespace_object.parent_space.space_name + '/userAccounts/' + settings.MASTER_USER+ "/dataAccessPermissions",
-        json=json.loads(json_data),
-        headers=headers,
-        verify=False)
-    print response.headers
-    return response
+@api_view(['DELETE'])
+def delete_folder(request,pk):
+    try:
+        serializer = FolderDeleteSerializer(data=request.data)
+        if serializer.is_valid():
+            tenant_object = UserSubspaces.objects.get(pk=serializer.data['namespace_id'])
+            token = "hcp-ns-auth=" + getTokenString()
+            CLUSTER = tenant_object.space_url + "/rest/" + serializer.data['name']
+            cin = StringIO.StringIO()
+            curl = pycurl.Curl()
+            curl.setopt(pycurl.URL, CLUSTER)
+            curl.setopt(pycurl.COOKIE, token)
+            curl.setopt(pycurl.SSL_VERIFYPEER, 0)
+            curl.setopt(pycurl.SSL_VERIFYHOST, 0)
+            curl.setopt(pycurl.HEADER, 1)
+            curl.setopt(pycurl.WRITEFUNCTION, cin.write)
+            curl.setopt(pycurl.CUSTOMREQUEST, "DELETE")
+            curl.perform()
+            return Response(cin.getvalue(), status=curl.getinfo(pycurl.HTTP_CODE))
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    except Exception as inst:
+        print inst
+        return Response(inst.args, status=status.HTTP_400_BAD_REQUEST)
