@@ -2,6 +2,7 @@ from django.http import *
 from management.models import *
 from django.contrib.auth.decorators import login_required
 import requests
+from django.conf import settings
 from django.shortcuts import render_to_response,get_object_or_404
 
 AREA_CODE = 2 # 0 space , 1 namespace , 2 tenant

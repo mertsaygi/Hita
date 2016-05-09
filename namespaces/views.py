@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.middleware import csrf
 from management.models import *
+from django.conf import settings
 import requests
 
 AREA_CODE = 1 # 0 space , 1 namespace , 2 tenant
