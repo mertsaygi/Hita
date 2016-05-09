@@ -4,9 +4,9 @@
     <list default="true" id="3e7a3165-56c9-49ce-8a44-bde07024f012" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/serializers.py" afterPath="$PROJECT_DIR$/api/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/urls.py" afterPath="$PROJECT_DIR$/api/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/css/signin.css" afterPath="$PROJECT_DIR$/themes/css/signin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/spaces.html" afterPath="$PROJECT_DIR$/themes/spaces.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/tenant.html" afterPath="$PROJECT_DIR$/themes/tenant.html" />
     </list>
     <ignored path="hita.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,7 +49,6 @@
       <list>
         <option value="$PROJECT_DIR$/api/utils.py" />
         <option value="$PROJECT_DIR$/themes/create_namespace.html" />
-        <option value="$PROJECT_DIR$/themes/tenant.html" />
         <option value="$PROJECT_DIR$/themes/namespace-settings.html" />
         <option value="$PROJECT_DIR$/themes/css/style.css" />
         <option value="$PROJECT_DIR$/themes/css/home.css" />
@@ -73,7 +72,6 @@
         <option value="$PROJECT_DIR$/hita/models.py" />
         <option value="$PROJECT_DIR$/themes/payment.html" />
         <option value="$PROJECT_DIR$/themes/billing.html" />
-        <option value="$PROJECT_DIR$/hita/settings.py" />
         <option value="$PROJECT_DIR$/hita/views.py" />
         <option value="$PROJECT_DIR$/tenant/views.py" />
         <option value="$PROJECT_DIR$/namespaces/views.py" />
@@ -81,6 +79,10 @@
         <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/api/serializers.py" />
         <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/hita/settings.py" />
+        <option value="$PROJECT_DIR$/themes/tenant.html" />
+        <option value="$PROJECT_DIR$/themes/spaces.html" />
+        <option value="$PROJECT_DIR$/themes/css/signin.css" />
       </list>
     </option>
   </component>
@@ -421,7 +423,21 @@
       <option name="project" value="LOCAL" />
       <updated>1462797508959</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="authentication for tenant and namespace almost done">
+      <created>1462808504773</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1462808504773</updated>
+    </task>
+    <task id="LOCAL-00019" summary="dashboards has been started">
+      <created>1462808574122</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1462808574122</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -507,7 +523,9 @@
     <MESSAGE value="Ready to prod v2" />
     <MESSAGE value="Ready to prod v3" />
     <MESSAGE value="minor bugs are fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor bugs are fixed" />
+    <MESSAGE value="authentication for tenant and namespace almost done" />
+    <MESSAGE value="dashboards has been started" />
+    <option name="LAST_COMMIT_MESSAGE" value="dashboards has been started" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -516,20 +534,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hita/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/js/hcphandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="152" column="4" selection-start-line="152" selection-start-column="4" selection-end-line="152" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -640,13 +644,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hita/decorator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/tenant.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -810,14 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hita/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="152" column="82" selection-start-line="152" selection-start-column="82" selection-end-line="152" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
@@ -838,6 +827,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="315" column="32" selection-start-line="315" selection-start-column="32" selection-end-line="315" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hita/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/tenant.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="31" column="115" selection-start-line="31" selection-start-column="115" selection-end-line="34" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/spaces.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="42" column="115" selection-start-line="42" selection-start-column="115" selection-end-line="42" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/css/signin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
           <folding />
         </state>
       </provider>
