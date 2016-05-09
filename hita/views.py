@@ -89,9 +89,9 @@ def forgot(request):
         hash = "1234"
         email_subject = 'Account confirmation'
         if settings.ENVIRONMENT == "DEVELOPMENT":
-            email_body = ENVIRONMENT_URL+"forgot/"+hash+"?page=2"
+            email_body = settings.ENVIRONMENT_URL+"forgot/"+hash+"?page=2"
         else:
-            email_body = ENVIRONMENT_URL+"forgot/"+hash+"?page=2"
+            email_body = settings.ENVIRONMENT_URL+"forgot/"+hash+"?page=2"
         send_mail(email_subject, email_body, 'myemail@example.com',[email], fail_silently=False)
     return render_to_response('forgot.html',locals())
 

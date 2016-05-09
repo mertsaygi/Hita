@@ -22,7 +22,7 @@ def main(request,pk):
     nspace = pk
     try:
         space = UserSubspaces.objects.get(pk=nspace)
-        response = requests.get(ENVIRONMENT_URL+"api/files/list/"+str(nspace),verify=False)
+        response = requests.get(settings.ENVIRONMENT_URL+"api/files/list/"+str(nspace),verify=False)
         user_files = response.json()
         return render_to_response('namespaces.html',locals())
     except UserSubspaces.DoesNotExist:
@@ -35,7 +35,7 @@ def view_file(request,pk,file):
     nspace = pk
     try:
         space = UserSubspaces.objects.get(pk=nspace)
-        response = requests.get(ENVIRONMENT_URL+"api/files/list/"+str(nspace),verify=False)
+        response = requests.get(settings.ENVIRONMENT_URL+"api/files/list/"+str(nspace),verify=False)
         user_files = response.json()
         return render_to_response('namespaces.html',locals())
     except UserSubspaces.DoesNotExist:
@@ -46,7 +46,7 @@ def remove_namespace(request,pk):
     area_code = AREA_CODE
     user_profile = UserProfile.objects.filter(user=request.user)
     if user_profile.count() > 0:
-        response = requests.get(ENVIRONMENT_URL+'api/namespace/delete/'+pk)
+        response = requests.get(settings.ENVIRONMENT_URL+'api/namespace/delete/'+pk)
         if response.status_code != 200:
             return HttpResponse(response)
         else:
