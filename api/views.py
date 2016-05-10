@@ -148,11 +148,12 @@ def create_tenant(request):
 
 @api_view(['DELETE'])
 def delete_tenant(request,pk):
-    if request.method == 'GET':
+    if request.method == 'DELETE':
         tenant_object = UserSpaces.objects.get(pk=pk)
         try:
             user_profile = UserProfile.objects.get(user=tenant_object.user)
-            headers = {'content-type': 'application/json','Authorization': 'HCP bXNheWdp:65f612d5e6bfba42b9961bf2767e7b5d'}
+            headers = {'content-type': 'application/json',
+                       'Authorization': 'HCP bXNheWdp:65f612d5e6bfba42b9961bf2767e7b5d'}
             response = requests.delete(
 	            'https://31.145.7.26:9090/mapi/tenants/'+tenant_object.space_url.replace(".mertsaygi.khas.edu.tr", "")+'?username='+settings.MASTER_USER+'&password='+settings.MASTER_PASS+'&forcePasswordChange=false',
 	            headers=headers,
@@ -211,12 +212,16 @@ def create_namespace(request,pk):
 
 @api_view(['DELETE'])
 def delete_namespace(request,pk):
-    if request.method == 'GET':
+    if request.method == 'DELETE':
         namespace_object = UserSubspaces.objects.get(pk=pk)
         try:
             user_profile = UserProfile.objects.get(user=namespace_object.user)
             headers = {'content-type': 'application/json','Authorization': 'HCP '+getTokenString()}
-            response = requests.delete('',
+            url = namespace_object.parent_space.space_url + ':9090/mapi/tenants/' + namespace_object.parent_space.space_url.replace(
+                ".mertsaygi.khas.edu.tr", "") + '/namespaces/'+namespace_object.space_name
+            url = get_pretty_url(url)
+            print url
+            response = requests.delete(url,
 	            headers=headers,
 	            verify=False)
             if response.status_code != 200:
@@ -224,8 +229,9 @@ def delete_namespace(request,pk):
             else:
                 namespace_object.delete()
                 return Response(response, status=status.HTTP_200_OK)
-        except:
-            return Response("Object not found.", status=status.HTTP_400_BAD_REQUEST)
+        except Exception as inst:
+            print inst.args
+            return Response(inst.args, status=status.HTTP_400_BAD_REQUEST)
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -259,8 +265,38 @@ def grant_namespace_authentication(namespace_object):
 
 # Single Namespace Creation Area
 
+def create_single_tenant(tenant_number):
+    if request.method == 'POST':
+        serializer = TenantCreateSerializer(data=request.data)
+        if serializer.is_valid():
+            headers = {'content-type': 'application/json',
+                       'Authorization': 'HCP bXNheWdp:65f612d5e6bfba42b9961bf2767e7b5d'}
+            response = requests.put(
+                'https://31.145.7.26:9090/mapi/tenants?username=' + settings.MASTER_USER + '&password=' + settings.MASTER_PASS + '&forcePasswordChange=false',
+                json=serializer.data,
+                headers=headers,
+                verify=False)
+            if response.status_code != 200:
+                return Response(response.headers, status=response.status_code)
+            else:
+                tenant = UserSpaces(user=request.user, space_url=request.data["name"] + ".mertsaygi.khas.edu.tr",
+                                    space_type=2, space_name=request.data["name"])
+                tenant.save()
+                # FIXME: Bu DNS kullanmaya başlayınca kalkacak!
+                os.system('echo "31.145.7.26 ' + request.data["name"] + '.mertsaygi.khas.edu.tr" >> /etc/hosts')
+                grant_tenant_authentication(tenant)
+                return Response(response.headers, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 @api_view(['POST'])
 def create_single_namespace(request,pk):
+    system_tenants = SystemTenants.objects.all()
+    if system_tenants.count() == 0:
+        create_tenant(1)
+    for i in system_tenants:
+        print i
     return Response("", status=status.HTTP_200_OK)
 
 # Folder Area

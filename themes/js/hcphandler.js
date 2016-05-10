@@ -204,3 +204,77 @@ $(".create-folder").click(function (event) {
             });
 
 });
+
+$(".delete-tenant").click(function (event) {
+
+        event.preventDefault();
+        var tenantName = $(this).attr("href");
+
+         $.ajax({
+            url : BASE_URL+"tenant/delete/"+tenantName,
+            type: "DELETE",
+            contentType: "application/json",
+            success: function(data, textStatus, jqXHR)
+            {
+                console.log(textStatus);
+                console.log(jqXHR.status);
+                var n = noty({
+                    text: 'Your tenant deleted successfully!',
+                    layout: 'top',
+                    type: 'success'
+                });
+                function reLoad(){
+                    window.location.reload();
+                }
+                setTimeout(reLoad, 2000);
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                var json = $.parseJSON(jqXHR.responseText);
+                var n = noty({
+                    text: json["X-HCP-ErrorMessage"],
+                    layout: 'top',
+                    type: 'error'
+                });
+            }
+
+            });
+
+});
+
+$(".delete-namespace").click(function (event) {
+
+        event.preventDefault();
+        var namespaceName = $(this).attr("href");
+
+         $.ajax({
+            url : BASE_URL+"namespace/delete/"+namespaceName,
+            type: "DELETE",
+            contentType: "application/json",
+            success: function(data, textStatus, jqXHR)
+            {
+                console.log(textStatus);
+                console.log(jqXHR.status);
+                var n = noty({
+                    text: 'Your namespace deleted successfully!',
+                    layout: 'top',
+                    type: 'success'
+                });
+                function reLoad(){
+                    window.location.reload();
+                }
+                setTimeout(reLoad, 2000);
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                var json = $.parseJSON(jqXHR.responseText);
+                var n = noty({
+                    text: json["X-HCP-ErrorMessage"],
+                    layout: 'top',
+                    type: 'error'
+                });
+            }
+
+            });
+
+});

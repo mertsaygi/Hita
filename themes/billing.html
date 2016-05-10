@@ -15,16 +15,37 @@
                     <h2>You Owe
                         <div style="float:right;">$46.39</div>
                     </h2>
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Pay Now
+                    </button>
                 </div>
                 <div class="col-md-6">
                     <h2>Usage
                         <div style="float:right;">$46.39</div>
                     </h2>
+                    <button type="submit" class="btn btn-primary" style="width:100%;">View Usage Credits
+                    </button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <h2>Billing Alerts</h2>
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Send me an email anytime my monthly usage has
+                                exceeded the amount listed to the right</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Save
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -128,14 +149,14 @@
                                     <div class="input-group" style="width:100%;">
                                         <input type="text" style="width:100%;" name="cardnumber"
                                                class="form-control span8"
-                                               placeholder="Credit Card Number"/>
+                                               placeholder="Credit Card Number" value="4508034508034509"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group" style="width:100%;">
                                         <input type="text" style="width:100%;" name="cvv"
                                                class="form-control span8"
-                                               placeholder="CVV"/>
+                                               placeholder="CVV" value="000"/>
                                     </div>
                                 </div>
                             </div>
@@ -148,13 +169,13 @@
                                     <div class="input-group" style="width:100%;">
                                         <input type="text" style="width:100%;" name="expration"
                                                class="form-control span8"
-                                               placeholder="Expires MM/YYYY"/>
+                                               placeholder="Expires MM/YYYY" value="12/16"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group" style="width:100%;">
                                         <input type="text" style="width:100%;" name="holdername"
-                                               class="form-control span8"
+                                               class="form-control span8" value="Mert Saygı"
                                                placeholder="Please enter a name for this credit card"/>
                                     </div>
                                 </div>
@@ -164,7 +185,8 @@
                             <button type="submit" class="btn btn-primary" style="width:100%;">Save Credit Card
                             </button>
                         </form>
-                        <div id="paypal" class="tab-pane fade">
+                        <form id="paypal" method="post" action="/payment/paypal/" class="tab-pane fade">
+                            {% csrf_token %}
                             <h4>PayPal Payment</h4>
 
                             <p>This is a one-time payment that will not recur. Payment may take up to 5 minutes to
@@ -186,7 +208,7 @@
                             <input type="hidden" name="form_name" value="tenant">
                             <button type="submit" class="btn btn-primary" style="width:100%;">Submit
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -195,13 +217,39 @@
                     <h2>Promo Code</h2>
                     <p>If you have a promo code, please enter it below to receive your credit</p>
                     <input type="text" style="width:100%;" name="promocode"
-                                   class="form-control span8"
-                                   placeholder="Promo Code"/>
+                           class="form-control span8"
+                           placeholder="Promo Code"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <h2>Billing History</h2>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

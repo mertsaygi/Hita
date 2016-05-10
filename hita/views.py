@@ -127,6 +127,7 @@ def account(request):
 @login_required(login_url='/login/')
 def billing(request):
     area_code = AREA_CODE
+    csrf_token = get_or_create_csrf_token(request)
     return render_to_response('billing.html',locals())
 
 @login_required(login_url='/login/')

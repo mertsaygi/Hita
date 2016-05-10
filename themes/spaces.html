@@ -43,7 +43,7 @@
                                     {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="{% if space.space_type == 1 %} /namespaces/remove/{{space.id}}{% else %} /tenant/remove/{{space.id}}{% endif %}">Delete
+                                <a class="delete-{% if space.space_type == 1 %}namespace{% else %}tenant{% endif %}" href="{{space.id}}">Delete
                                     {% if space.space_type == 1 %} Namespace {% else %} Tenant {% endif %}</a></li>
                         </ul>
                     </div>
