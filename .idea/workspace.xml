@@ -28,27 +28,26 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="258" column="32" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+            <state relative-caret-position="216">
+              <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
               <folding>
-                <element signature="e#24#57#0" expanded="true" />
-                <element signature="e#477#624#0" expanded="false" />
                 <element signature="e#652#809#0" expanded="false" />
                 <element signature="e#834#870#0" expanded="false" />
-                <element signature="e#939#1588#0" expanded="false" />
-                <element signature="e#1643#2707#0" expanded="false" />
-                <element signature="e#2762#3730#0" expanded="false" />
-                <element signature="e#3782#4416#0" expanded="false" />
-                <element signature="e#4483#5804#0" expanded="false" />
-                <element signature="e#5863#6895#0" expanded="false" />
-                <element signature="e#6953#7548#0" expanded="false" />
-                <element signature="e#7626#9229#0" expanded="false" />
-                <element signature="e#9291#10102#0" expanded="false" />
-                <element signature="e#10206#10757#0" expanded="false" />
-                <element signature="e#10817#11489#0" expanded="false" />
-                <element signature="e#11590#11636#0" expanded="false" />
-                <element signature="e#11705#12937#0" expanded="false" />
-                <element signature="e#12996#14068#0" expanded="false" />
+                <element signature="e#939#1626#0" expanded="false" />
+                <element signature="e#1681#2791#0" expanded="false" />
+                <element signature="e#2846#3852#0" expanded="false" />
+                <element signature="e#4549#5902#0" expanded="false" />
+                <element signature="e#5961#6993#0" expanded="false" />
+                <element signature="e#7051#7646#0" expanded="false" />
+                <element signature="e#7724#9327#0" expanded="false" />
+                <element signature="e#10304#10855#0" expanded="false" />
+                <element signature="e#10915#11587#0" expanded="false" />
+                <element signature="e#11688#11734#0" expanded="false" />
+                <element signature="e#11803#13035#0" expanded="false" />
+                <element signature="e#13094#14166#0" expanded="false" />
+                <marker date="1462839420022" expanded="false" signature="472:624" placeholder="..." />
+                <marker date="1462839420022" expanded="false" signature="3899:4480" placeholder="..." />
+                <marker date="1462839420022" expanded="false" signature="9384:10198" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -491,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462833802399</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Api Kısmı Oturmak Üzere">
+      <created>1462838277577</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1462838277577</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -511,9 +517,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030912" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271605" sideWeight="0.4969088" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.4969088" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20377655" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2685185" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2685185" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -582,7 +588,8 @@
     <MESSAGE value="some design issues" />
     <MESSAGE value="Credit card test" />
     <MESSAGE value="Sandbox modda kredi kartı entegrasyonu çalışıyor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sandbox modda kredi kartı entegrasyonu çalışıyor" />
+    <MESSAGE value="Api Kısmı Oturmak Üzere" />
+    <option name="LAST_COMMIT_MESSAGE" value="Api Kısmı Oturmak Üzere" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -783,14 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hita/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboards/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -943,29 +942,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hita/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="258" column="32" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+        <state relative-caret-position="216">
+          <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
           <folding>
-            <element signature="e#24#57#0" expanded="true" />
-            <element signature="e#477#624#0" expanded="false" />
             <element signature="e#652#809#0" expanded="false" />
             <element signature="e#834#870#0" expanded="false" />
-            <element signature="e#939#1588#0" expanded="false" />
-            <element signature="e#1643#2707#0" expanded="false" />
-            <element signature="e#2762#3730#0" expanded="false" />
-            <element signature="e#3782#4416#0" expanded="false" />
-            <element signature="e#4483#5804#0" expanded="false" />
-            <element signature="e#5863#6895#0" expanded="false" />
-            <element signature="e#6953#7548#0" expanded="false" />
-            <element signature="e#7626#9229#0" expanded="false" />
-            <element signature="e#9291#10102#0" expanded="false" />
-            <element signature="e#10206#10757#0" expanded="false" />
-            <element signature="e#10817#11489#0" expanded="false" />
-            <element signature="e#11590#11636#0" expanded="false" />
-            <element signature="e#11705#12937#0" expanded="false" />
-            <element signature="e#12996#14068#0" expanded="false" />
+            <element signature="e#939#1626#0" expanded="false" />
+            <element signature="e#1681#2791#0" expanded="false" />
+            <element signature="e#2846#3852#0" expanded="false" />
+            <element signature="e#4549#5902#0" expanded="false" />
+            <element signature="e#5961#6993#0" expanded="false" />
+            <element signature="e#7051#7646#0" expanded="false" />
+            <element signature="e#7724#9327#0" expanded="false" />
+            <element signature="e#10304#10855#0" expanded="false" />
+            <element signature="e#10915#11587#0" expanded="false" />
+            <element signature="e#11688#11734#0" expanded="false" />
+            <element signature="e#11803#13035#0" expanded="false" />
+            <element signature="e#13094#14166#0" expanded="false" />
+            <marker date="1462839420022" expanded="false" signature="472:624" placeholder="..." />
+            <marker date="1462839420022" expanded="false" signature="3899:4480" placeholder="..." />
+            <marker date="1462839420022" expanded="false" signature="9384:10198" placeholder="..." />
           </folding>
         </state>
       </provider>

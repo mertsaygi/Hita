@@ -37,6 +37,7 @@ def get_file(request,pk,file):
     tenant_object = UserSubspaces.objects.get(pk=pk)
     token = "hcp-ns-auth="+getTokenString()
     CLUSTER = tenant_object.space_url+"/rest/"+file
+    CLUSTER = get_pretty_url(CLUSTER)
     f = open('/tmp/'+file, 'wb+')
     cin = StringIO.StringIO()
     curl = pycurl.Curl()
@@ -61,6 +62,7 @@ def delete_files(request):
             tenant_object = UserSubspaces.objects.get(pk=serializer.data['namespace_id'])
             token = "hcp-ns-auth="+getTokenString()
             CLUSTER = tenant_object.space_url+"/rest/"+serializer.data['name']
+            CLUSTER = get_pretty_url(CLUSTER)
             cin = StringIO.StringIO()
             curl = pycurl.Curl()
             curl.setopt(pycurl.URL, CLUSTER)
@@ -84,6 +86,7 @@ def upload_file(request,pk):
     uploaded_file = request.FILES['file']
     token = "hcp-ns-auth="+getTokenString()
     CLUSTER = tenant_object.space_url+"/rest/"
+    CLUSTER = get_pretty_url(CLUSTER)
     FN = str(uploaded_file.name)
     path = default_storage.save('tmp/'+uploaded_file.name, ContentFile(uploaded_file.read()))
     path = os.path.join(settings.MEDIA_ROOT, path)
@@ -107,9 +110,7 @@ def upload_file(request,pk):
 def get_files(request,pk):
     tenant_object = UserSubspaces.objects.get(pk=pk)
     CLUSTER = tenant_object.space_url.lower()+"/rest/"
-    if "https://" not in CLUSTER:
-        CLUSTER = "https://"+str(CLUSTER)
-    print CLUSTER
+    CLUSTER = get_pretty_url(CLUSTER)
     headers = {'content-type': 'application/xml','accept': 'application/xml','Authorization': 'HCP '+getTokenString()}
     response = requests.get(CLUSTER,headers=headers, verify=False)
     if response.status_code != 200:
@@ -135,7 +136,7 @@ def create_tenant(request):
                 return Response(response.headers, status=response.status_code)
             else:
                 tenant = UserSpaces(user=request.user, space_url=request.data["name"] + ".mertsaygi.khas.edu.tr",
-                                    space_type=2)
+                                    space_type=2,space_name=request.data["name"])
                 tenant.save()
                 #FIXME: Bu DNS kullanmaya başlayınca kalkacak!
                 os.system('echo "31.145.7.26 '+request.data["name"] + '.mertsaygi.khas.edu.tr" >> /etc/hosts')
