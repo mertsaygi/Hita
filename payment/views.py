@@ -46,7 +46,10 @@ def main(request):
 @login_required(login_url='/login/')
 def success(request):
     csrf_token = get_or_create_csrf_token(request)
-    return HttpResponse("success")
+    user = request.user
+    user.is_active = True
+    user.save()
+    return HttpResponseRedirect("/spaces/")
 
 @login_required(login_url='/login/')
 def fail(request):

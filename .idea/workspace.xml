@@ -4,7 +4,7 @@
     <list default="true" id="3e7a3165-56c9-49ce-8a44-bde07024f012" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/payment/views.py" afterPath="$PROJECT_DIR$/payment/views.py" />
     </list>
     <ignored path="hita.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,36 +24,7 @@
     <favorites_list name="hita" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
-              <folding>
-                <element signature="e#652#809#0" expanded="false" />
-                <element signature="e#834#870#0" expanded="false" />
-                <element signature="e#939#1626#0" expanded="false" />
-                <element signature="e#1681#2791#0" expanded="false" />
-                <element signature="e#2846#3852#0" expanded="false" />
-                <element signature="e#4549#5902#0" expanded="false" />
-                <element signature="e#5961#6993#0" expanded="false" />
-                <element signature="e#7051#7646#0" expanded="false" />
-                <element signature="e#7724#9327#0" expanded="false" />
-                <element signature="e#10304#10855#0" expanded="false" />
-                <element signature="e#10915#11587#0" expanded="false" />
-                <element signature="e#11688#11734#0" expanded="false" />
-                <element signature="e#11803#13035#0" expanded="false" />
-                <element signature="e#13094#14166#0" expanded="false" />
-                <marker date="1462839420022" expanded="false" signature="472:624" placeholder="..." />
-                <marker date="1462839420022" expanded="false" signature="3899:4480" placeholder="..." />
-                <marker date="1462839420022" expanded="false" signature="9384:10198" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -113,8 +84,8 @@
         <option value="$PROJECT_DIR$/payment/models.py" />
         <option value="$PROJECT_DIR$/hita/settings.py" />
         <option value="$PROJECT_DIR$/themes/payment.html" />
-        <option value="$PROJECT_DIR$/payment/views.py" />
         <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/payment/views.py" />
       </list>
     </option>
   </component>
@@ -497,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462838277577</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Api kısmı create için ok">
+      <created>1462839765961</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1462839765961</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -511,9 +489,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="-4" width="1317" height="772" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2368214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2368214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030912" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -589,11 +567,12 @@
     <MESSAGE value="Credit card test" />
     <MESSAGE value="Sandbox modda kredi kartı entegrasyonu çalışıyor" />
     <MESSAGE value="Api Kısmı Oturmak Üzere" />
-    <option name="LAST_COMMIT_MESSAGE" value="Api Kısmı Oturmak Üzere" />
+    <MESSAGE value="Api kısmı create için ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Api kısmı create için ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -912,20 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/payment/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
-            <element signature="e#408#446#0" expanded="false" />
-            <element signature="e#532#758#0" expanded="false" />
-            <element signature="e#803#1016#0" expanded="false" />
-            <element signature="e#3549#3816#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/management/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -972,6 +937,23 @@
             <marker date="1462839420022" expanded="false" signature="472:624" placeholder="..." />
             <marker date="1462839420022" expanded="false" signature="3899:4480" placeholder="..." />
             <marker date="1462839420022" expanded="false" signature="9384:10198" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payment/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding>
+            <element signature="e#408#446#0" expanded="false" />
+            <element signature="e#532#758#0" expanded="false" />
+            <element signature="e#803#1016#0" expanded="false" />
+            <element signature="e#1078#2050#0" expanded="false" />
+            <element signature="e#2115#2271#0" expanded="false" />
+            <element signature="e#2333#2411#0" expanded="false" />
+            <element signature="e#2504#3577#0" expanded="false" />
+            <element signature="e#3624#3891#0" expanded="false" />
           </folding>
         </state>
       </provider>
