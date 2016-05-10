@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e7a3165-56c9-49ce-8a44-bde07024f012" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hita/settings.py" afterPath="$PROJECT_DIR$/hita/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/payment/urls.py" afterPath="$PROJECT_DIR$/payment/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/payment/views.py" afterPath="$PROJECT_DIR$/payment/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/payment.html" afterPath="$PROJECT_DIR$/themes/payment.html" />
     </list>
     <ignored path="hita.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,13 +81,14 @@
         <option value="$PROJECT_DIR$/dashboards/views.py" />
         <option value="$PROJECT_DIR$/dashboards/urls.py" />
         <option value="$PROJECT_DIR$/hita/views.py" />
-        <option value="$PROJECT_DIR$/payment/urls.py" />
         <option value="$PROJECT_DIR$/hita/models.py" />
         <option value="$PROJECT_DIR$/payment/models.py" />
-        <option value="$PROJECT_DIR$/hita/settings.py" />
-        <option value="$PROJECT_DIR$/themes/payment.html" />
         <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/hita/settings.py" />
+        <option value="$PROJECT_DIR$/payment/urls.py" />
         <option value="$PROJECT_DIR$/payment/views.py" />
+        <option value="$PROJECT_DIR$/themes/payment.html" />
       </list>
     </option>
   </component>
@@ -475,7 +478,21 @@
       <option name="project" value="LOCAL" />
       <updated>1462839765961</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Making some improvements">
+      <created>1462840118808</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1462840118808</updated>
+    </task>
+    <task id="LOCAL-00026" summary="paypal sdk integration started">
+      <created>1462841106470</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1462841106470</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -543,8 +560,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="File upload yapılıyor response'da hata var ama" />
-    <MESSAGE value="Birşeyler yapıldı." />
     <MESSAGE value="ui/ux modified" />
     <MESSAGE value="making some improvements&#10;" />
     <MESSAGE value="making some improvements vol 2&#10;" />
@@ -568,7 +583,9 @@
     <MESSAGE value="Sandbox modda kredi kartı entegrasyonu çalışıyor" />
     <MESSAGE value="Api Kısmı Oturmak Üzere" />
     <MESSAGE value="Api kısmı create için ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Api kısmı create için ok" />
+    <MESSAGE value="Making some improvements" />
+    <MESSAGE value="paypal sdk integration started" />
+    <option name="LAST_COMMIT_MESSAGE" value="paypal sdk integration started" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -577,20 +594,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="170" column="56" selection-start-line="170" selection-start-column="56" selection-end-line="170" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hita/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hita/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -616,13 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -774,7 +770,7 @@
         <state relative-caret-position="90">
           <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,7 +780,7 @@
         <state relative-caret-position="126">
           <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding>
-            <element signature="e#24#52#0" expanded="true" />
+            <element signature="e#24#52#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -794,17 +790,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/payment/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -814,7 +800,7 @@
         <state relative-caret-position="-757">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,26 +853,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hita/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="181" column="46" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/js/hcphandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="137" column="77" selection-start-line="137" selection-start-column="77" selection-end-line="137" selection-end-column="77" />
           <folding />
         </state>
       </provider>
@@ -941,20 +911,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3282">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hita/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="189" column="97" selection-start-line="189" selection-start-column="97" selection-end-line="189" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payment/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/payment/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="288">
+          <caret line="116" column="45" selection-start-line="116" selection-start-column="45" selection-end-line="116" selection-end-column="45" />
           <folding>
-            <element signature="e#408#446#0" expanded="false" />
-            <element signature="e#532#758#0" expanded="false" />
-            <element signature="e#803#1016#0" expanded="false" />
-            <element signature="e#1078#2050#0" expanded="false" />
-            <element signature="e#2115#2271#0" expanded="false" />
-            <element signature="e#2333#2411#0" expanded="false" />
-            <element signature="e#2504#3577#0" expanded="false" />
-            <element signature="e#3624#3891#0" expanded="false" />
+            <element signature="e#24#49#0" expanded="true" />
+            <element signature="e#429#467#0" expanded="false" />
+            <element signature="e#553#779#0" expanded="false" />
+            <element signature="e#824#1037#0" expanded="false" />
+            <element signature="e#1099#2071#0" expanded="false" />
+            <element signature="e#2136#2292#0" expanded="false" />
+            <element signature="e#2525#3598#0" expanded="false" />
+            <element signature="e#3645#3912#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="154" column="32" selection-start-line="154" selection-start-column="32" selection-end-line="154" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

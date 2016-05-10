@@ -151,7 +151,8 @@
                 <button type="submit" class="btn btn-primary" style="width:100%;">Save Credit Card
                 </button>
             </form>
-            <div id="paypal" class="tab-pane fade">
+            <form id="paypal" method="post" action="/payment/paypal/" class="tab-pane fade">
+                {% csrf_token %}
                 <h4>PayPal Payment</h4>
 
                 <p>This is a one-time payment that will not recur. Payment may take up to 5 minutes to process.</p>
@@ -172,7 +173,7 @@
                 <input type="hidden" name="form_name" value="tenant">
                 <button type="submit" class="btn btn-primary" style="width:100%;">Submit
                 </button>
-            </div>
+            </form>
         </div>
 
     </div>

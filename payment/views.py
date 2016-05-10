@@ -6,6 +6,7 @@ from django.middleware import csrf
 from management.models import *
 from django.conf import settings
 import json
+import paypalrestsdk
 from models import *
 import requests, hashlib, base64, time
 
@@ -99,3 +100,21 @@ def finalize_3d_payment(request,result):
         return redirect("success_page")
     else:
         return redirect("checkout_page")
+
+def paypal(request):
+    api = paypalrestsdk.configure({'mode': 'sandbox','client_id': settings.CLIENT_ID,'client_secret': settings.CLIENT_SECRET})
+    payment = paypalrestsdk.Payment({
+    "intent": "sale",
+    "payer": {
+    "payment_method": "paypal" },
+    "redirect_urls": {
+        "return_url": "https://devtools-paypal.com/guide/pay_paypal/python?success=true",
+        "cancel_url": "https://devtools-paypal.com/guide/pay_paypal/python?cancel=true" },
+    "transactions": [ {
+        "amount": {
+            "total": "1",
+            "currency": "USD" },
+    "description": "Hita Account Registration" } ] }, api=api)
+    payment.create()
+    print payment['links'][1]['href']
+    return HttpResponseRedirect(payment['links'][1]['href'])

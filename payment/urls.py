@@ -6,6 +6,7 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('hita.payments.views',
     url(r'^$', views.main, name="home"),
+    url(r'^paypal/$', views.paypal, name="paypal"),
     url(r'^success/$', views.success, name="success"),
     url(r'^fail/$', views.fail, name="fail"),
 )

@@ -183,3 +183,10 @@ EST_FAIL_URL = ENVIRONMENT_URL+"payment/fail/"
 EST_3D_URL = 'https://entegrasyon.asseco-see.com.tr/fim/est3Dgate'
 
 # End Of Integration
+
+# Paypal Integration
+
+CLIENT_ID = "AYXqb1j2oR2iw2PXh6Wji74ZqYH9xlGdr9-3kASp94ydkB61WG6qHXxcseSMjhYNHh7NHt8vvJ2FoDfJ"
+CLIENT_SECRET = "EGyU3h7wd7r1RCxwsutW_v8qUK4ZKyMbX1NPZVnZGJg5bq1Gf-DKM-LQNF9frgfGjSnSUBOSN6XyOCVQ"
+
+# End Of Integration
