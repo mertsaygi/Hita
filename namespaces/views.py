@@ -43,6 +43,10 @@ def view_file(request,pk,file):
         return HttpResponseRedirect('/spaces/')
 
 @login_required(login_url='/login/')
+def manage_access(request,pk):
+    return render_to_response('manage-access.html',locals())
+
+@login_required(login_url='/login/')
 def namespace_settings(request,pk):
     area_code = AREA_CODE
     return render_to_response('namespace-settings.html',locals())

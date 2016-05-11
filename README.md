@@ -30,16 +30,17 @@ To Setup:
  4. Run "python manage.py runserver"
 
 Report Tasks:
-1. Abstract'ı ingilizceye çevir ve giriş gelişme sonuç yap
-2. Introduction'da abstract+birkaç paragraf kullan
-3. Amazon S3 , Openstack Swift , EMC's Atmos kısımlarını alıntıla
-4. Technical structre giriş paragrafı
-5. Defining a Pain and Product Development giriş paragrafı
-6. Project Analysis ve Workflowsa birşeyler karala
-7. Conclusion yaz
-8. Software developmenta birşeyler karala
-9. General Structre oturt
-10. To-Do List Yap
+
+ 1. Abstract'ı ingilizceye çevir ve giriş gelişme sonuç yap
+ 2. Introduction'da abstract+birkaç paragraf kullan
+ 3. Amazon S3 , Openstack Swift , EMC's Atmos kısımlarını alıntıla
+ 4. Technical structre giriş paragrafı
+ 5. Defining a Pain and Product Development giriş paragrafı
+ 6. Project Analysis ve Workflowsa birşeyler karala
+ 7. Conclusion yaz
+ 8. Software developmenta birşeyler karala
+ 9. General Structre oturt
+ 10. To-Do List Yap
 -------------------------------------------------------------------
 Emergencies:
 1. Tenant Düzenleme

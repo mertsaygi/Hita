@@ -19,7 +19,8 @@
             </div>
             <div class="modal-body">
                 <div id="dropzone">
-                    <form action="/api/files/upload/{{ nspace }}"  method="post" enctype="multipart/form-data" class="dropzone dz-clickable"
+                    <form action="/api/files/upload/{{ nspace }}" method="post" enctype="multipart/form-data"
+                          class="dropzone dz-clickable"
                           id="demo-upload">
                         {% csrf_token %}
                         <div class="dz-message">Drop files here or click to upload.
@@ -32,24 +33,25 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
+</div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
   $.ajaxSetup({beforeSend: function(xhr, settings){
     xhr.setRequestHeader('X-CSRFToken',
                          '{{ csrf_token }}');
   }});
 
 
-    </script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/noty/packaged/jquery.noty.packaged.min.js' %}"></script>
-    <script src="{% static 'js/dropzone.js' %}"></script>
-    <script src="{% static 'js/hcphandler.js' %}"></script>
-    </body>
-    </html>
+
+</script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/noty/packaged/jquery.noty.packaged.min.js' %}"></script>
+<script src="{% static 'js/dropzone.js' %}"></script>
+<script src="{% static 'js/hcphandler.js' %}"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,39 +22,62 @@
     <link href="{% static 'css/signin.css' %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="{% static 'js/ie8-responsive-file-warning.js' %}"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/ie8-responsive-file-warning.js' %}"></script><![endif]-->
     <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div class="container">
+<div class="container">
 
-      <form class="form-signin" method="post" action="/register/">
+    <form class="form-signin" method="post" action="/register/">
         <h2 class="form-signin-heading">Sign Up</h2>
 
-          {% csrf_token %}
-          {% for field in form.visible_fields %}
-            {{ field }}
-          {% endfor %}
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+        {{ field }}
+        {% endfor %}
 
         <div class="checkbox">
-          <p>By signing up, you agree to the <a href="/terms/">Terms of Service</a></p>
+            <p>By signing up, you agree to the <a  href="#upload-file" data-toggle="modal" data-target="#upload-file">Terms of Service</a></p>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-          <p>Already have an account? <a href="/login/">Log In</a></p>
-      </form>
+        <p>Already have an account? <a href="/login/">Log In</a></p>
+    </form>
 
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+<!-- Modal File Upload -->
+<div class="modal fade" id="upload-file" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Terms and Conditions</h4>
+            </div>
+            <div class="modal-body">
+
+                AAA
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
 </html>

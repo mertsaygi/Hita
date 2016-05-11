@@ -1,4 +1,12 @@
 {% include "header.html" %}
+<style>
+    .box{
+        padding: 2rem;
+        border: 2px solid #f1f1f1;
+        border-radius: 3px;
+        margin-top: 20px;
+    }
+</style>
 <!-- Begin page content -->
 <div class="container">
     <div class="page-header">
@@ -7,18 +15,18 @@
 
     <div class="row">
         <div class="col-md-3">
-            .col-md-4
+            {% include "account-menu.html" %}
         </div>
         <div class="col-md-9">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 box">
                     <h2>You Owe
                         <div style="float:right;">$46.39</div>
                     </h2>
                     <button type="submit" class="btn btn-primary" style="width:100%;">Pay Now
                     </button>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 box">
                     <h2>Usage
                         <div style="float:right;">$46.39</div>
                     </h2>
@@ -26,7 +34,7 @@
                     </button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row box">
                 <div class="col-md-12">
                     <h2>Billing Alerts</h2>
                     <div class="col-md-6">
@@ -48,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row box">
                 <div class="col-md-12">
                     <h2>Payment Methods</h2>
                     <p>Please enter your preferred payment method below. You can use a credit card or prepay through
@@ -212,7 +220,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row box">
                 <div class="col-md-12">
                     <h2>Promo Code</h2>
                     <p>If you have a promo code, please enter it below to receive your credit</p>
@@ -221,7 +229,7 @@
                            placeholder="Promo Code"/>
                 </div>
             </div>
-            <div class="row">
+            <div class="row box">
                 <div class="col-md-12">
                     <h2>Billing History</h2>
                     <table class="table table-striped">

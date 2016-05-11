@@ -28,6 +28,10 @@ def main(request,pk):
     return render_to_response('tenant.html',locals())
 
 @login_required(login_url='/login/')
+def manage_access(request,pk):
+    return render_to_response('manage-access.html',locals())
+
+@login_required(login_url='/login/')
 def tenant_settings(request,pk):
     csrf_token = get_or_create_csrf_token(request)
     area_code = AREA_CODE
