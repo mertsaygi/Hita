@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import os
 from django.http import *
+from models import *
 import requests
 from django.conf import settings
 from serializers import *
@@ -241,9 +242,9 @@ def grant_tenant_authentication(tenant_object):
     import json
     json_data = '{"roles" : {"role" : [ "COMPLIANCE", "MONITOR", "SECURITY", "ADMINISTRATOR" ]}}'
     headers = {'content-type': 'application/json', 'Authorization': 'HCP ' + getTokenString()}
-    response = requests.post(
+    response = requests.head(
         'https://' + tenant_object.space_url + ':9090/mapi/tenants/' + tenant_object.space_url.replace(
-            ".mertsaygi.khas.edu.tr", "") + '/userAccounts/'+settings.MASTER_USER,
+            ".mertsaygi.khas.edu.tr", ""), #+ '/userAccounts/'+settings.MASTER_USER,
         json=json.loads(json_data),
         headers=headers,
         verify=False)
@@ -265,39 +266,68 @@ def grant_namespace_authentication(namespace_object):
 
 # Single Namespace Creation Area
 
-def create_single_tenant(tenant_number):
-    if request.method == 'POST':
-        serializer = TenantCreateSerializer(data=request.data)
+def create_single_tenant(request,tenant_number):
+    d = TenantCreation("Tenant"+str(tenant_number),"System Namespace","20 GB","90","5")
+    print d
+    serializer = TenantCreateSerializer(data=d)
+    if serializer.is_valid():
+        headers = {'content-type': 'application/json',
+                    'Authorization': 'HCP bXNheWdp:65f612d5e6bfba42b9961bf2767e7b5d'}
+        response = requests.put(
+            'https://31.145.7.26:9090/mapi/tenants?username=' + settings.MASTER_USER + '&password=' + settings.MASTER_PASS + '&forcePasswordChange=false',
+            json=serializer.data,
+            headers=headers,
+            verify=False)
+        if response.status_code != 200:
+            print response.headers
+            return Response(response.headers, status=response.status_code)
+        else:
+            tenant = UserSpaces(user=request.user, space_url=serializer.data["name"] + ".mertsaygi.khas.edu.tr",
+                                space_type=2, space_name=serializer.data["name"])
+            tenant.save()
+            # FIXME: Bu DNS kullanmaya başlayınca kalkacak!
+            os.system('echo "31.145.7.26 ' + request.data["name"] + '.mertsaygi.khas.edu.tr" >> /etc/hosts')
+            grant_tenant_authentication(tenant)
+            print response.text
+            create_namespace_without_tenant(request, "Tenant" + str(1), number)
+    print serializer.errors
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def create_namespace_without_tenant(request,tenant_name,number):
+    tenant_object = SystemTenants.objects.get(space_name=tenant_name)
+    try:
+        serializer = NamespaceCreateSerializer(data=request.data)
         if serializer.is_valid():
-            headers = {'content-type': 'application/json',
-                       'Authorization': 'HCP bXNheWdp:65f612d5e6bfba42b9961bf2767e7b5d'}
-            response = requests.put(
-                'https://31.145.7.26:9090/mapi/tenants?username=' + settings.MASTER_USER + '&password=' + settings.MASTER_PASS + '&forcePasswordChange=false',
-                json=serializer.data,
-                headers=headers,
-                verify=False)
+            headers = {'content-type': 'application/json', 'Authorization': 'HCP ' + getTokenString()}
+            url = tenant_object.space_url + ':9090/mapi/tenants/' + tenant_object.space_url.replace(
+                ".mertsaygi.khas.edu.tr", "") + '/namespaces'
+            url = get_pretty_url(url)
+            response = requests.put(url,
+                                    json=serializer.data,
+                                    headers=headers,
+                                    verify=False)
             if response.status_code != 200:
-                return Response(response.headers, status=response.status_code)
+                create_single_tenant(request, (number+1))
             else:
-                tenant = UserSpaces(user=request.user, space_url=request.data["name"] + ".mertsaygi.khas.edu.tr",
-                                    space_type=2, space_name=request.data["name"])
-                tenant.save()
-                # FIXME: Bu DNS kullanmaya başlayınca kalkacak!
-                os.system('echo "31.145.7.26 ' + request.data["name"] + '.mertsaygi.khas.edu.tr" >> /etc/hosts')
-                grant_tenant_authentication(tenant)
+                namespace = UserSubspaces(parent_space=tenant_object, user=request.user,
+                                          space_url=request.data["name"] + "." + tenant_object.space_url,
+                                          space_type=1, space_name=request.data["name"])
+                namespace.save()
+                os.system(
+                    'echo "31.145.7.26 ' + namespace.space_name + '.' + tenant_object.space_url + '" >> /etc/hosts')
+                grant_namespace_authentication(namespace)
                 return Response(response.headers, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    else:
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    except Exception as inst:
+        return Response(inst.args, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
-def create_single_namespace(request,pk):
+def create_single_namespace(request):
     system_tenants = SystemTenants.objects.all()
     if system_tenants.count() == 0:
-        create_tenant(1)
+        return create_single_tenant(request,1)
     for i in system_tenants:
-        print i
-    return Response("", status=status.HTTP_200_OK)
+        return create_namespace_without_tenant(request, i.space_name,i.id)
 
 # Folder Area
 

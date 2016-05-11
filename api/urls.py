@@ -20,7 +20,7 @@ urlpatterns = patterns('hita.api.views',
     url(r'^tenant/(?P<pk>[0-9]+)$', views.get_tenant_info, name='get_tenant_info'),
     url(r'^tenant/create/', views.create_tenant, name='create_tenant'),
     # Namespace Processes
-    url(r'^namespace/create-without-tenant/(?P<pk>[0-9]+)$', views.create_single_namespace, name='create_namespace'),
+    url(r'^namespace/create-without-tenant/', views.create_single_namespace, name='create_namespace'),
     url(r'^namespace/create/(?P<pk>[0-9]+)$', views.create_namespace, name='create_namespace'),
     url(r'^namespace/delete/(?P<pk>[0-9]+)$', views.delete_namespace, name='delete_namespace'),
 )

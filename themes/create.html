@@ -156,7 +156,7 @@
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                     commodo consequat.</p>
 
-                <form id="namespace-form" name="namespace" class="form-horizontal" role="form"
+                <form id="namespace-without-tenant-form" name="namespace" class="form-horizontal" role="form"
                       style="width:100%;">
                     {% csrf_token %}
                     <div class="input-group" style="width:100%;">
@@ -165,7 +165,31 @@
                     </div>
                     <br/>
 
-                    <div class="input-group" style="width:100%;">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="nspace_hardQuota"
+                                       placeholder="HardQuota"/>
+
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle"
+                                            data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false"><text id="storage_unit_selection">GB</text>
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a id="gb">GB</a></li>
+                                        <li><a id="tb">TB</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" name="nspace_softQuota"
+                                   placeholder="SoftQuota"/>
+                        </div>
+                    </div>
+
+                    <!--<div class="input-group" style="width:100%;">
                         <input type="text" style="width:100%;" class="form-control span8"
                                placeholder="Username"/>
                     </div>
@@ -180,7 +204,7 @@
                     <div class="input-group" style="width:100%;">
                         <input type="text" style="width:100%;" class="form-control span8"
                                placeholder="Password Again"/>
-                    </div>
+                    </div>-->
                     <br/>
                     <br/>
                     <br/>
