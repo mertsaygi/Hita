@@ -42,45 +42,61 @@ Report Tasks:
  9. General Structre oturt
  10. To-Do List Yap
 -------------------------------------------------------------------
+
 Emergencies:
-1. Tenant Düzenleme
-2. Tenant Silme
-3. Namespace Düzenleme
-4. Namespace Silme
-6. Dosya Uploadda Update File
-7. Bir kullanıcı diğerinin dosyalarını göremesin
-8. Bir şekilde hesap aktifleştirmeyi yap
+
+ 1. Tenant Düzenleme
+ 2. Tenant Silme
+ 3. Namespace Düzenleme
+ 4. Namespace Silme
+ 6. Dosya Uploadda Update File
+ 7. Bir kullanıcı diğerinin dosyalarını göremesin
+ 8. Bir şekilde hesap aktifleştirmeyi yap
+
 -------------------------------------------------------------------
-1. File görüntüleme
-2. User profile,Ödeme ve User Settings Page Design and DB Structre
-3. Modify tenant ve namespace de veri çek
-4. Namespace oluşturmadaki hataları gider
-5. Sistemi test et
-6. Buglistten devam et
-7. Future planning
+
+ 1. File görüntüleme
+ 2. User profile,Ödeme ve User Settings Page Design and DB Structre
+ 3. Modify tenant ve namespace de veri çek
+ 4. Namespace oluşturmadaki hataları gider
+ 5. Sistemi test et
+ 6. Buglistten devam et
+ 7. Future planning
+
 -------------------------------------------------------------------
+
 Tez kısmı:
-1. Sunum planlama
-2. Proje rapor kısmını kurallı taslağa oturtma (akademik)
-3. Hitachinin yazımı
+
+ 1. Sunum planlama
+ 2. Proje rapor kısmını kurallı taslağa oturtma (akademik)
+ 3. Hitachinin yazımı
+
 -------------------------------------------------------------------
+
 Pains:
-1. Security
-2. UI/UX
-3. Structre
+
+ 1. Security
+ 2. UI/UX
+ 3. Structre
+
 -------------------------------------------------------------------
+
 Bugs:
-1. Kredi kartı ve paypal ödeme hataları giderilecek
-2. Büyük boyutlu dosya indirmede gecikme var.
-3. Dosya ismi boşluklu ise upload etmiyor.
-4. Bir kullanıcı diğerinin dosyalarını görebiliyor.
-5. Create namespace ve tenant'ta eksik serializer alanları gider
-6. Forgot kısmı akışını tamamla
-7. Aktif olmayan hesap tenant/namespace açamasın test edilecek
-8. Register ve Forgot Maillerini Template Haline Getir
-9. Register Mailde Activation İstemeli
+
+ 1. Kredi kartı ve paypal ödeme hataları giderilecek
+ 2. Büyük boyutlu dosya indirmede gecikme var.
+ 3. Dosya ismi boşluklu ise upload etmiyor.
+ 4. Bir kullanıcı diğerinin dosyalarını görebiliyor.
+ 5. Create namespace ve tenant'ta eksik serializer alanları gider
+ 6. Forgot kısmı akışını tamamla
+ 7. Aktif olmayan hesap tenant/namespace açamasın test edilecek
+ 8. Register ve Forgot Maillerini Template Haline Getir
+ 9. Register Mailde Activation İstemeli
+
 -------------------------------------------------------------------
+
 Google Keep:
+
 1. [URGENT] Namespaceleri listele
 2. [URGENT] Tenantsız namespace
 3. [URGENT] Namespace oluştur

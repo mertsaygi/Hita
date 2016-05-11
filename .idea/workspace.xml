@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e7a3165-56c9-49ce-8a44-bde07024f012" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/account-menu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/manage-access.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/namespaces/urls.py" afterPath="$PROJECT_DIR$/namespaces/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/namespaces/views.py" afterPath="$PROJECT_DIR$/namespaces/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tenant/urls.py" afterPath="$PROJECT_DIR$/tenant/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tenant/views.py" afterPath="$PROJECT_DIR$/tenant/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/account.html" afterPath="$PROJECT_DIR$/themes/account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/billing.html" afterPath="$PROJECT_DIR$/themes/billing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/footer.html" afterPath="$PROJECT_DIR$/themes/footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/register.html" afterPath="$PROJECT_DIR$/themes/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/settings.html" afterPath="$PROJECT_DIR$/themes/settings.html" />
     </list>
     <ignored path="hita.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,8 +77,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+            <state relative-caret-position="304">
+              <caret line="93" column="1" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -590,7 +578,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462925054282</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="making some improvements">
+      <created>1462954295586</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1462954295586</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -611,9 +606,9 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030912" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.4969088" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271605" sideWeight="0.4969088" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20377655" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22993827" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22993827" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -661,7 +656,6 @@
     <MESSAGE value="File listing is ok" />
     <MESSAGE value="making some improvements vol3" />
     <MESSAGE value="Folder Yaratmaya Başlanıldı ve Bazı Hatalar Giderildi" />
-    <MESSAGE value="making some improvements" />
     <MESSAGE value="Download is ok." />
     <MESSAGE value="File and folder viewing infrastructre is ok" />
     <MESSAGE value="Kredikartı ve profil serializerler yazıldı" />
@@ -683,7 +677,8 @@
     <MESSAGE value="Paypal integration is completed" />
     <MESSAGE value="Tenant and namespace deletions is ok" />
     <MESSAGE value="Tenantsız namespace yaratma üzerinde çalışılıyor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tenantsız namespace yaratma üzerinde çalışılıyor" />
+    <MESSAGE value="making some improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="making some improvements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1071,8 +1066,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+        <state relative-caret-position="304">
+          <caret line="93" column="1" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
           <folding />
         </state>
       </provider>
