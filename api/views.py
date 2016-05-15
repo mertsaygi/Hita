@@ -172,6 +172,7 @@ def delete_tenant(request,pk):
 @api_view(['GET'])
 def get_tenant_info(request,pk):
     tenant_object = UserSpaces.objects.get(pk=pk)
+    grant_tenant_authentication(tenant_object)
     CLUSTER = 'https://'+tenant_object.space_url+':9090/mapi/tenants/'+tenant_object.space_url.replace(".mertsaygi.khas.edu.tr", "")
     headers = {'content-type': 'application/xml','accept': 'application/xml','Authorization': 'HCP '+getTokenString()}
     response = requests.get(CLUSTER,headers=headers, verify=False)
@@ -242,13 +243,14 @@ def grant_tenant_authentication(tenant_object):
     import json
     json_data = '{"roles" : {"role" : [ "COMPLIANCE", "MONITOR", "SECURITY", "ADMINISTRATOR" ]}}'
     headers = {'content-type': 'application/json', 'Authorization': 'HCP ' + getTokenString()}
-    response = requests.head(
+    response = requests.post(
         'https://' + tenant_object.space_url + ':9090/mapi/tenants/' + tenant_object.space_url.replace(
-            ".mertsaygi.khas.edu.tr", ""), #+ '/userAccounts/'+settings.MASTER_USER,
+            ".mertsaygi.khas.edu.tr", "")+ '/userAccounts/'+settings.MASTER_USER,
         json=json.loads(json_data),
         headers=headers,
         verify=False)
     print response.headers
+    print response
     return response
 
 def grant_namespace_authentication(namespace_object):

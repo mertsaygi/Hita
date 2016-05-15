@@ -51,3 +51,17 @@ class UserSubspaces(models.Model):
 
     class Meta:
         verbose_name_plural = "User Subspaces"
+
+class SpaceAuthorizations(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User)
+    space_type = models.IntegerField(choices=[(1, 'Space'), (2, 'Subspace')])
+    space_name = models.CharField(max_length=255)
+    is_authority_valid = models.BooleanField()
+
+    def __unicode__(self):
+        return self.user.username+" "+self.space_type
+
+    class Meta:
+        verbose_name_plural = "Space Authorizations"
+

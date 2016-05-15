@@ -41,6 +41,7 @@ Report Tasks:
  8. Software developmenta birşeyler karala
  9. General Structre oturt
  10. To-Do List Yap
+
 -------------------------------------------------------------------
 
 Emergencies:

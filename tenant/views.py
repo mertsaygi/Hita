@@ -21,6 +21,7 @@ def main(request,pk):
     csrf_token = get_or_create_csrf_token(request)
     area_code = AREA_CODE
     nspace_container = pk
+    response = requests.get(settings.ENVIRONMENT_URL + "api/tenant/" + str(pk), verify=False)
     try:
         user_spaces = UserSubspaces.objects.filter(user=request.user,parent_space=UserSpaces.objects.get(pk=pk))
     except UserSpaces.DoesNotExist:
