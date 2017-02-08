@@ -154,8 +154,8 @@ AUTH_KEY = "bXNheWdp:65f612d5e6bfba42b9961bf2767e7b5d"
 # E-Mail Configurations
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mertsaygi@gmail.com'
-EMAIL_HOST_PASSWORD = 'aSfR3q13'
+EMAIL_HOST_USER = 'xxxx@xxx.com'
+EMAIL_HOST_PASSWORD = 'xxxxxx'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
